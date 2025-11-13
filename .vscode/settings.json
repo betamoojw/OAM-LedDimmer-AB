@@ -13,5 +13,6 @@
         "array": "cpp",
         "type_traits": "cpp",
         "variant": "cpp"
-    }
+    },
+    "idf.portWin": "COM43"
 }

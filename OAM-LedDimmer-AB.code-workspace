@@ -115,7 +115,26 @@
 			"xlocmon": "cpp",
 			"xlocnum": "cpp",
 			"xtr1common": "cpp",
-			"ratio": "cpp"
+			"ratio": "cpp",
+			"bit": "cpp",
+			"concepts": "cpp",
+			"coroutine": "cpp",
+			"ios": "cpp",
+			"locale": "cpp",
+			"numbers": "cpp",
+			"queue": "cpp",
+			"semaphore": "cpp",
+			"source_location": "cpp",
+			"stop_token": "cpp",
+			"thread": "cpp",
+			"xfacet": "cpp",
+			"xiosbase": "cpp",
+			"xlocbuf": "cpp",
+			"xlocinfo": "cpp",
+			"xlocmes": "cpp",
+			"xloctime": "cpp",
+			"xmemory": "cpp",
+			"text_encoding": "cpp"
 		}
 	}
 }
