@@ -37,7 +37,7 @@
     template="../lib/OFM-LedModule/src/LEDModule.templ.xml"
     ModuleType="20"
     KoSingleOffset="20"
-    NumChannels="16">
+    NumChannels="%LED_SC_NumChannels%">
     <op:verify File="../lib/OFM-LedModule/library.json" ModuleVersion="%LED_VerifyVersion%" />
   </op:define>
 
@@ -47,7 +47,7 @@
     template="../lib/OFM-LedModule/src/Single.templ.xml"
     ModuleType="21"
     KoOffset="30"
-    NumChannels="16" /> <!-- 16 KOs/Ch = 256 -->
+    NumChannels="%LED_SC_NumChannels%" /> <!-- 16 KOs/Ch x 16 = 256 -->
   
   <op:define prefix="LED_TW" prefixDoc="LED" 
     configTransferName="  TW - Tunable White"
@@ -55,7 +55,7 @@
     template="../lib/OFM-LedModule/src/TW.templ.xml"
     ModuleType="22"
     KoOffset="290"
-    NumChannels="8"/> <!-- 20 KOs/Ch = 160 -->
+    NumChannels="%LED_TW_NumChannels%"/> <!-- 20 KOs/Ch x 8 = 160 -->
 
   <op:define prefix="LED_RGB" prefixDoc="LED" 
     configTransferName="  RGB - Rot/Grün/Blau"
@@ -63,7 +63,7 @@
     template="../lib/OFM-LedModule/src/RGB.templ.xml"
     ModuleType="23"
     KoOffset="450"
-    NumChannels="5"/> <!-- 23 KOs/Ch = 115 -->
+    NumChannels="%LED_RGB_NumChannels%"/> <!-- 23 KOs/Ch x 5 = 115 -->
 
   <op:define prefix="SWA"
     ModuleType="30"
