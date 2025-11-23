@@ -38,7 +38,13 @@ if (!$?) { exit 1 }
 ../OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_ABSmartHouse_CV_UP_6CH AB-SmartHouse_CV_UP_6CH uf2
  if (!$?) { exit 1 }
 
+../OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_ABSmartHouse_CV_UP_6CH_CS AB-SmartHouse_CV_UP_6CH_CS uf2
+ if (!$?) { exit 1 }
+
 ../OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_ABSmartHouse_CV_REG_12CH AB-SmartHouse_CV_REG_12CH uf2
+ if (!$?) { exit 1 }
+
+../OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_ABSmartHouse_CV_REG_12CH_CS AB-SmartHouse_CV_REG_12CH_CS uf2
  if (!$?) { exit 1 }
 
 ../OGM-Common/scripts/setup/reusable/Build-Step.ps1 release_ABSmartHouse_CC_UP_8CH AB-SmartHouse_CC_UP_8CH uf2

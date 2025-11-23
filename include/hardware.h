@@ -179,6 +179,8 @@
 
     #define OPENKNX_BI_GPIO_COUNT                   0
 
+    #define OPENKNX_SWA_CHANNEL_COUNT               0
+
     #define OPENKNX_GPIO_NUM                        2
     #define OPENKNX_GPIO_TYPES                      OPENKNX_GPIO_T_TCA9555, OPENKNX_GPIO_T_TCA9555
     #define OPENKNX_GPIO_ADDRS                      0x20, 0x21
@@ -263,7 +265,9 @@
 
     #define OPENKNX_BI_GPIO_COUNT                   0
 
-    #define OPENKNX_GPIO_NUM                        2
+    #define OPENKNX_SWA_CHANNEL_COUNT               0
+
+    #define OPENKNX_GPIO_NUM                        3
     #define OPENKNX_GPIO_TYPES                      OPENKNX_GPIO_T_TCA9555, OPENKNX_GPIO_T_TCA9555, OPENKNX_GPIO_T_TCA9555
     #define OPENKNX_GPIO_ADDRS                      0x20, 0x21, 0x24
     #define OPENKNX_GPIO_INTS                       0xFF, 0x08, 0x1B

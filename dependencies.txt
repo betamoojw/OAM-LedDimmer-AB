@@ -4,7 +4,7 @@ ee3c00e v1 lib/knx https://github.com/OpenKNX/knx.git
 e003477 v1 lib/OFM-ConfigTransfer https://github.com/OpenKNX/OFM-ConfigTransfer.git
 3a96b4e v1 lib/OFM-FileTransferModule https://github.com/OpenKNX/OFM-FileTransferModule.git
 7663283 v1 lib/OFM-FunctionBlocks https://github.com/OpenKNX/OFM-FunctionBlocks.git
-818cb2e v1dev lib/OFM-LedModule https://github.com/OpenKNX/OFM-LedModule.git
+5096c74 v1dev lib/OFM-LedModule https://github.com/OpenKNX/OFM-LedModule.git
 ea7c433 v1 lib/OFM-LogicModule https://github.com/OpenKNX/OFM-LogicModule.git
 c825b0c v1 lib/OFM-SensorModule https://github.com/OpenKNX/OFM-SensorModule.git
 5f270c0 devel lib/OFM-SwitchActuator https://github.com/OpenKNX/OFM-SwitchActuator.git
