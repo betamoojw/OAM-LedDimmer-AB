@@ -47,30 +47,31 @@
     template="../lib/OFM-LedModule/src/Single.templ.xml"
     ModuleType="21"
     KoOffset="30"
-    NumChannels="16" /> <!-- 10 KOs/Ch = 160 -->
+    NumChannels="16" /> <!-- 16 KOs/Ch = 256 -->
   
   <op:define prefix="LED_TW" prefixDoc="LED" 
     configTransferName="  TW - Tunable White"
     share="../lib/OFM-LedModule/src/TW.share.xml"
     template="../lib/OFM-LedModule/src/TW.templ.xml"
     ModuleType="22"
-    KoOffset="190"
-    NumChannels="8"/> <!-- 14 KOs/Ch = 112 -->
+    KoOffset="290"
+    NumChannels="8"/> <!-- 20 KOs/Ch = 160 -->
 
   <op:define prefix="LED_RGB" prefixDoc="LED" 
     configTransferName="  RGB - Rot/Grün/Blau"
     share="../lib/OFM-LedModule/src/RGB.share.xml"
     template="../lib/OFM-LedModule/src/RGB.templ.xml"
     ModuleType="23"
-    KoOffset="302"
-    NumChannels="5"/> <!-- 17 KOs/Ch = 85 -->
+    KoOffset="450"
+    NumChannels="5"/> <!-- 23 KOs/Ch = 115 -->
 
-  <op:define prefix="SWA" ModuleType="30"
+  <op:define prefix="SWA"
+    ModuleType="30"
     share="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.share.xml"
     template="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.templ.xml"
     NumChannels="1"
-    KoSingleOffset="387"
-    KoOffset="388">
+    KoSingleOffset="570"
+    KoOffset="580">
     <op:verify File="../lib/OFM-SwitchActuator/library.json" ModuleVersion="%SWA_VerifyVersion%" />
   </op:define> <!-- 9 KOs/Ch = 9 -->
 
@@ -78,7 +79,7 @@
     share="../lib/OFM-BinaryInput/src/BinaryInputChannel.share.xml"
     template="../lib/OFM-BinaryInput/src/BinaryInputChannel.templ.xml"
     NumChannels="4"
-    KoOffset="397" >
+    KoOffset="590" >
     <op:verify File="../lib/OFM-BinaryInput/library.json" ModuleVersion="%BI_VerifyVersion%" /> 
   </op:define> <!-- 1 KO/Ch = 4 -->
 
@@ -87,23 +88,23 @@
     share="../lib/OFM-VirtualButton/src/VirtualButton.share.xml"
     template="../lib/OFM-VirtualButton/src/VirtualButton.templ.xml"
     NumChannels="10"
-    KoOffset="401">
+    KoOffset="595">
     <op:verify File="../lib/OFM-VirtualButton/library.json" ModuleVersion="%BTN_VerifyVersion%" /> 
   </op:define> <!-- 12 KOs/Ch = 120 -->
   
   <op:define prefix="SENS"
     ModuleType="60"
     share="../lib/OFM-SensorModule/src/Sensormodul.share.xml"
-    KoSingleOffset="478">
+    KoSingleOffset="715">
     <op:verify File="../lib/OFM-SensorModule/library.json" ModuleVersion="%SENS_VerifyVersion%" />
-  </op:define> <!-- 45 KOs - offset: 521 - 43 -->
+  </op:define> <!-- 45 KOs -->
 
   <op:define prefix="LOG"
     ModuleType="10"
     share="../lib/OFM-LogicModule/src/Logikmodul.share.xml"
     template="../lib/OFM-LogicModule/src/Logikmodul.templ.xml"
     NumChannels="99"
-    KoOffset="570">
+    KoOffset="761">
     <op:verify File="../lib/OFM-LogicModule/library.json" ModuleVersion="%LOG_VerifyVersion%" /> 
   </op:define> <!-- 3 KOs/Ch = 297 -->
 
@@ -112,7 +113,7 @@
     share="../lib/OFM-FunctionBlocks/src/FunctionBlocks.share.xml"
     template="../lib/OFM-FunctionBlocks/src/FunctionBlocks.templ.xml"
     NumChannels="10"
-    KoOffset="870">
+    KoOffset="1060">
     <op:verify File="../lib/OFM-FunctionBlocks/library.json" ModuleVersion="%FCB_VerifyVersion%" /> 
   </op:define> <!-- 10 KOs/Ch = 100 -->
 

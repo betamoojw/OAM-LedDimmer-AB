@@ -24,11 +24,11 @@
 #define MAIN_FirmwareName "LED-Dimmer (AB-SmartHouse) (dev)"
 #define MAIN_OpenKnxId 0xAF
 #define MAIN_ApplicationNumber 7
-#define MAIN_ApplicationVersion 23
+#define MAIN_ApplicationVersion 25
 #define MAIN_FirmwareRevision 0
 #define MAIN_ApplicationEncoding iso-8859-15
-#define MAIN_ParameterSize 6846
-#define MAIN_MaxKoNumber 1059
+#define MAIN_ParameterSize 7127
+#define MAIN_MaxKoNumber 1069
 #define MAIN_OrderNumber "OpenKnxLedDimmerAB"
 #define BASE_ModuleVersion 21
 #define UCT_ModuleVersion 4
@@ -378,7 +378,7 @@
 #define ParamLED_TotalCurrentSendCyclicTime          (knx.paramWord(LED_TotalCurrentSendCyclicTime) & LED_TotalCurrentSendCyclicTimeMask)
 // Zeit (in Millisekunden)
 #define ParamLED_TotalCurrentSendCyclicTimeMS        (paramDelay(knx.paramWord(LED_TotalCurrentSendCyclicTime)))
-// Geräteschutz aktivieren
+// Netzteilschutz aktivieren
 #define ParamLED_PowerSupplyProtActive               ((bool)(knx.paramByte(LED_PowerSupplyProtActive) & LED_PowerSupplyProtActiveMask))
 // Schutzabschaltung aktivieren
 #define ParamLED_PowerSupplyProtCutOff               ((bool)(knx.paramByte(LED_PowerSupplyProtCutOff) & LED_PowerSupplyProtCutOffMask))
@@ -454,7 +454,7 @@
 
 // Parameter per channel
 #define LED_SC_ParamBlockOffset 261
-#define LED_SC_ParamBlockSize 92
+#define LED_SC_ParamBlockSize 89
 #define LED_SC_ParamCalcIndex(index) (index + LED_SC_ParamBlockOffset + _channelIndex * LED_SC_ParamBlockSize)
 
 #define LED_SC_ChLightDimmDayOnTime                 0      // uint16_t
@@ -509,250 +509,250 @@
 #define LED_SC_ChScenesDisableNightSw              24      // 1 Bit, Bit 6
 #define     LED_SC_ChScenesDisableNightSwMask 0x40
 #define     LED_SC_ChScenesDisableNightSwShift 6
-#define LED_SC_ChMeasureActive                     24      // 1 Bit, Bit 5
-#define     LED_SC_ChMeasureActiveMask 0x20
-#define     LED_SC_ChMeasureActiveShift 5
-#define LED_SC_ChProtecitonsActive                 24      // 1 Bit, Bit 4
-#define     LED_SC_ChProtecitonsActiveMask 0x10
-#define     LED_SC_ChProtecitonsActiveShift 4
-#define LED_SC_ChPowerSend                         25      // 1 Bit, Bit 7
-#define     LED_SC_ChPowerSendMask 0x80
-#define     LED_SC_ChPowerSendShift 7
-#define LED_SC_ChCurrentSend                       25      // 1 Bit, Bit 6
-#define     LED_SC_ChCurrentSendMask 0x40
-#define     LED_SC_ChCurrentSendShift 6
-#define LED_SC_ChPowerSendMinChangePercent         26      // uint8_t
-#define LED_SC_ChPowerSendMinChangeAbsolute        27      // uint16_t
-#define LED_SC_ChPowerSendCyclicBase               29      // 2 Bits, Bit 7-6
-#define     LED_SC_ChPowerSendCyclicBaseMask 0xC0
-#define     LED_SC_ChPowerSendCyclicBaseShift 6
-#define LED_SC_ChPowerSendCyclicTime               29      // 14 Bits, Bit 13-0
-#define     LED_SC_ChPowerSendCyclicTimeMask 0x3FFF
-#define     LED_SC_ChPowerSendCyclicTimeShift 0
-#define LED_SC_ChCurrentSendMinChangePercent       31      // uint8_t
-#define LED_SC_ChCurrentSendMinChangeAbsolute      32      // uint16_t
-#define LED_SC_ChCurrentSendCyclicBase             34      // 2 Bits, Bit 7-6
-#define     LED_SC_ChCurrentSendCyclicBaseMask 0xC0
-#define     LED_SC_ChCurrentSendCyclicBaseShift 6
-#define LED_SC_ChCurrentSendCyclicTime             34      // 14 Bits, Bit 13-0
-#define     LED_SC_ChCurrentSendCyclicTimeMask 0x3FFF
-#define     LED_SC_ChCurrentSendCyclicTimeShift 0
-#define LED_SC_ChDeviceProtActive                  36      // 1 Bit, Bit 7
-#define     LED_SC_ChDeviceProtActiveMask 0x80
-#define     LED_SC_ChDeviceProtActiveShift 7
-#define LED_SC_ChDeviceProtCutOff                  36      // 1 Bit, Bit 6
-#define     LED_SC_ChDeviceProtCutOffMask 0x40
-#define     LED_SC_ChDeviceProtCutOffShift 6
-#define LED_SC_ChDeviceProtContCurrent             37      // uint16_t
-#define LED_SC_ChDeviceProtOverloadPercent         39      // uint8_t
-#define LED_SC_ChDeviceProtOverloadBase            40      // 2 Bits, Bit 7-6
-#define     LED_SC_ChDeviceProtOverloadBaseMask 0xC0
-#define     LED_SC_ChDeviceProtOverloadBaseShift 6
-#define LED_SC_ChDeviceProtOverloadTime            40      // 14 Bits, Bit 13-0
-#define     LED_SC_ChDeviceProtOverloadTimeMask 0x3FFF
-#define     LED_SC_ChDeviceProtOverloadTimeShift 0
-#define LED_SC_ChLampProtActive                    42      // 1 Bit, Bit 7
-#define     LED_SC_ChLampProtActiveMask 0x80
-#define     LED_SC_ChLampProtActiveShift 7
-#define LED_SC_ChLampProtCutOff                    42      // 1 Bit, Bit 6
-#define     LED_SC_ChLampProtCutOffMask 0x40
-#define     LED_SC_ChLampProtCutOffShift 6
-#define LED_SC_ChLampProtCableCrossSect            42      // 2 Bits, Bit 3-2
-#define     LED_SC_ChLampProtCableCrossSectMask 0x0C
-#define     LED_SC_ChLampProtCableCrossSectShift 2
-#define LED_SC_ChLampProtCableLength               43      // float
-#define LED_SC_ChLampProtContPower                 47      // uint16_t
-#define LED_SC_ChLampProtOverloadPercent           49      // uint8_t
-#define LED_SC_ChLampProtOverloadBase              50      // 2 Bits, Bit 7-6
-#define     LED_SC_ChLampProtOverloadBaseMask 0xC0
-#define     LED_SC_ChLampProtOverloadBaseShift 6
-#define LED_SC_ChLampProtOverloadTime              50      // 14 Bits, Bit 13-0
-#define     LED_SC_ChLampProtOverloadTimeMask 0x3FFF
-#define     LED_SC_ChLampProtOverloadTimeShift 0
-#define LED_SC_ChSceneA_Type                       52      // 3 Bits, Bit 7-5
+#define LED_SC_ChSceneA_Type                       25      // 3 Bits, Bit 7-5
 #define     LED_SC_ChSceneA_TypeMask 0xE0
 #define     LED_SC_ChSceneA_TypeShift 5
-#define LED_SC_ChSceneA_ValueType                  52      // 3 Bits, Bit 4-2
+#define LED_SC_ChSceneA_ValueType                  25      // 3 Bits, Bit 4-2
 #define     LED_SC_ChSceneA_ValueTypeMask 0x1C
 #define     LED_SC_ChSceneA_ValueTypeShift 2
-#define LED_SC_ChSceneA_Lockobject                 52      // 1 Bit, Bit 1
+#define LED_SC_ChSceneA_Lockobject                 25      // 1 Bit, Bit 1
 #define     LED_SC_ChSceneA_LockobjectMask 0x02
 #define     LED_SC_ChSceneA_LockobjectShift 1
-#define LED_SC_ChSceneA_LockobjectFunc             52      // 2 Bits, Bit 0--1
-#define LED_SC_ChSceneA_AllowSave                  53      // 1 Bit, Bit 7
+#define LED_SC_ChSceneA_LockobjectFunc             25      // 2 Bits, Bit 0--1
+#define LED_SC_ChSceneA_AllowSave                  26      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneA_AllowSaveMask 0x80
 #define     LED_SC_ChSceneA_AllowSaveShift 7
-#define LED_SC_ChSceneA_Number                     53      // 7 Bits, Bit 6-0
+#define LED_SC_ChSceneA_Number                     26      // 7 Bits, Bit 6-0
 #define     LED_SC_ChSceneA_NumberMask 0x7F
 #define     LED_SC_ChSceneA_NumberShift 0
-#define LED_SC_ChSceneA_Function                   54      // 1 Bit, Bit 7
+#define LED_SC_ChSceneA_Function                   27      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneA_FunctionMask 0x80
 #define     LED_SC_ChSceneA_FunctionShift 7
-#define LED_SC_ChSceneA_Sequence                   54      // 2 Bits, Bit 7-6
+#define LED_SC_ChSceneA_Sequence                   27      // 2 Bits, Bit 7-6
 #define     LED_SC_ChSceneA_SequenceMask 0xC0
 #define     LED_SC_ChSceneA_SequenceShift 6
-#define LED_SC_ChSceneA_Brightness                 54      // uint8_t
-#define LED_SC_ChSceneB_Type                       57      // 3 Bits, Bit 7-5
+#define LED_SC_ChSceneA_Brightness                 27      // uint8_t
+#define LED_SC_ChSceneB_Type                       30      // 3 Bits, Bit 7-5
 #define     LED_SC_ChSceneB_TypeMask 0xE0
 #define     LED_SC_ChSceneB_TypeShift 5
-#define LED_SC_ChSceneB_ValueType                  57      // 3 Bits, Bit 4-2
+#define LED_SC_ChSceneB_ValueType                  30      // 3 Bits, Bit 4-2
 #define     LED_SC_ChSceneB_ValueTypeMask 0x1C
 #define     LED_SC_ChSceneB_ValueTypeShift 2
-#define LED_SC_ChSceneB_Lockobject                 57      // 1 Bit, Bit 1
+#define LED_SC_ChSceneB_Lockobject                 30      // 1 Bit, Bit 1
 #define     LED_SC_ChSceneB_LockobjectMask 0x02
 #define     LED_SC_ChSceneB_LockobjectShift 1
-#define LED_SC_ChSceneB_LockobjectFunc             57      // 2 Bits, Bit 0--1
-#define LED_SC_ChSceneB_AllowSave                  58      // 1 Bit, Bit 7
+#define LED_SC_ChSceneB_LockobjectFunc             30      // 2 Bits, Bit 0--1
+#define LED_SC_ChSceneB_AllowSave                  31      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneB_AllowSaveMask 0x80
 #define     LED_SC_ChSceneB_AllowSaveShift 7
-#define LED_SC_ChSceneB_Number                     58      // 7 Bits, Bit 6-0
+#define LED_SC_ChSceneB_Number                     31      // 7 Bits, Bit 6-0
 #define     LED_SC_ChSceneB_NumberMask 0x7F
 #define     LED_SC_ChSceneB_NumberShift 0
-#define LED_SC_ChSceneB_Function                   59      // 1 Bit, Bit 7
+#define LED_SC_ChSceneB_Function                   32      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneB_FunctionMask 0x80
 #define     LED_SC_ChSceneB_FunctionShift 7
-#define LED_SC_ChSceneB_Sequence                   59      // 2 Bits, Bit 7-6
+#define LED_SC_ChSceneB_Sequence                   32      // 2 Bits, Bit 7-6
 #define     LED_SC_ChSceneB_SequenceMask 0xC0
 #define     LED_SC_ChSceneB_SequenceShift 6
-#define LED_SC_ChSceneB_Brightness                 59      // uint8_t
-#define LED_SC_ChSceneC_Type                       62      // 3 Bits, Bit 7-5
+#define LED_SC_ChSceneB_Brightness                 32      // uint8_t
+#define LED_SC_ChSceneC_Type                       35      // 3 Bits, Bit 7-5
 #define     LED_SC_ChSceneC_TypeMask 0xE0
 #define     LED_SC_ChSceneC_TypeShift 5
-#define LED_SC_ChSceneC_ValueType                  62      // 3 Bits, Bit 4-2
+#define LED_SC_ChSceneC_ValueType                  35      // 3 Bits, Bit 4-2
 #define     LED_SC_ChSceneC_ValueTypeMask 0x1C
 #define     LED_SC_ChSceneC_ValueTypeShift 2
-#define LED_SC_ChSceneC_Lockobject                 62      // 1 Bit, Bit 1
+#define LED_SC_ChSceneC_Lockobject                 35      // 1 Bit, Bit 1
 #define     LED_SC_ChSceneC_LockobjectMask 0x02
 #define     LED_SC_ChSceneC_LockobjectShift 1
-#define LED_SC_ChSceneC_LockobjectFunc             62      // 2 Bits, Bit 0--1
-#define LED_SC_ChSceneC_AllowSave                  63      // 1 Bit, Bit 7
+#define LED_SC_ChSceneC_LockobjectFunc             35      // 2 Bits, Bit 0--1
+#define LED_SC_ChSceneC_AllowSave                  36      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneC_AllowSaveMask 0x80
 #define     LED_SC_ChSceneC_AllowSaveShift 7
-#define LED_SC_ChSceneC_Number                     63      // 7 Bits, Bit 6-0
+#define LED_SC_ChSceneC_Number                     36      // 7 Bits, Bit 6-0
 #define     LED_SC_ChSceneC_NumberMask 0x7F
 #define     LED_SC_ChSceneC_NumberShift 0
-#define LED_SC_ChSceneC_Function                   64      // 1 Bit, Bit 7
+#define LED_SC_ChSceneC_Function                   37      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneC_FunctionMask 0x80
 #define     LED_SC_ChSceneC_FunctionShift 7
-#define LED_SC_ChSceneC_Sequence                   64      // 2 Bits, Bit 7-6
+#define LED_SC_ChSceneC_Sequence                   37      // 2 Bits, Bit 7-6
 #define     LED_SC_ChSceneC_SequenceMask 0xC0
 #define     LED_SC_ChSceneC_SequenceShift 6
-#define LED_SC_ChSceneC_Brightness                 64      // uint8_t
-#define LED_SC_ChSceneD_Type                       67      // 3 Bits, Bit 7-5
+#define LED_SC_ChSceneC_Brightness                 37      // uint8_t
+#define LED_SC_ChSceneD_Type                       40      // 3 Bits, Bit 7-5
 #define     LED_SC_ChSceneD_TypeMask 0xE0
 #define     LED_SC_ChSceneD_TypeShift 5
-#define LED_SC_ChSceneD_ValueType                  67      // 3 Bits, Bit 4-2
+#define LED_SC_ChSceneD_ValueType                  40      // 3 Bits, Bit 4-2
 #define     LED_SC_ChSceneD_ValueTypeMask 0x1C
 #define     LED_SC_ChSceneD_ValueTypeShift 2
-#define LED_SC_ChSceneD_Lockobject                 67      // 1 Bit, Bit 1
+#define LED_SC_ChSceneD_Lockobject                 40      // 1 Bit, Bit 1
 #define     LED_SC_ChSceneD_LockobjectMask 0x02
 #define     LED_SC_ChSceneD_LockobjectShift 1
-#define LED_SC_ChSceneD_LockobjectFunc             67      // 2 Bits, Bit 0--1
-#define LED_SC_ChSceneD_AllowSave                  68      // 1 Bit, Bit 7
+#define LED_SC_ChSceneD_LockobjectFunc             40      // 2 Bits, Bit 0--1
+#define LED_SC_ChSceneD_AllowSave                  41      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneD_AllowSaveMask 0x80
 #define     LED_SC_ChSceneD_AllowSaveShift 7
-#define LED_SC_ChSceneD_Number                     68      // 7 Bits, Bit 6-0
+#define LED_SC_ChSceneD_Number                     41      // 7 Bits, Bit 6-0
 #define     LED_SC_ChSceneD_NumberMask 0x7F
 #define     LED_SC_ChSceneD_NumberShift 0
-#define LED_SC_ChSceneD_Function                   69      // 1 Bit, Bit 7
+#define LED_SC_ChSceneD_Function                   42      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneD_FunctionMask 0x80
 #define     LED_SC_ChSceneD_FunctionShift 7
-#define LED_SC_ChSceneD_Sequence                   69      // 2 Bits, Bit 7-6
+#define LED_SC_ChSceneD_Sequence                   42      // 2 Bits, Bit 7-6
 #define     LED_SC_ChSceneD_SequenceMask 0xC0
 #define     LED_SC_ChSceneD_SequenceShift 6
-#define LED_SC_ChSceneD_Brightness                 69      // uint8_t
-#define LED_SC_ChSceneE_Type                       72      // 3 Bits, Bit 7-5
+#define LED_SC_ChSceneD_Brightness                 42      // uint8_t
+#define LED_SC_ChSceneE_Type                       45      // 3 Bits, Bit 7-5
 #define     LED_SC_ChSceneE_TypeMask 0xE0
 #define     LED_SC_ChSceneE_TypeShift 5
-#define LED_SC_ChSceneE_ValueType                  72      // 3 Bits, Bit 4-2
+#define LED_SC_ChSceneE_ValueType                  45      // 3 Bits, Bit 4-2
 #define     LED_SC_ChSceneE_ValueTypeMask 0x1C
 #define     LED_SC_ChSceneE_ValueTypeShift 2
-#define LED_SC_ChSceneE_Lockobject                 72      // 1 Bit, Bit 1
+#define LED_SC_ChSceneE_Lockobject                 45      // 1 Bit, Bit 1
 #define     LED_SC_ChSceneE_LockobjectMask 0x02
 #define     LED_SC_ChSceneE_LockobjectShift 1
-#define LED_SC_ChSceneE_LockobjectFunc             72      // 2 Bits, Bit 0--1
-#define LED_SC_ChSceneE_AllowSave                  73      // 1 Bit, Bit 7
+#define LED_SC_ChSceneE_LockobjectFunc             45      // 2 Bits, Bit 0--1
+#define LED_SC_ChSceneE_AllowSave                  46      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneE_AllowSaveMask 0x80
 #define     LED_SC_ChSceneE_AllowSaveShift 7
-#define LED_SC_ChSceneE_Number                     73      // 7 Bits, Bit 6-0
+#define LED_SC_ChSceneE_Number                     46      // 7 Bits, Bit 6-0
 #define     LED_SC_ChSceneE_NumberMask 0x7F
 #define     LED_SC_ChSceneE_NumberShift 0
-#define LED_SC_ChSceneE_Function                   74      // 1 Bit, Bit 7
+#define LED_SC_ChSceneE_Function                   47      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneE_FunctionMask 0x80
 #define     LED_SC_ChSceneE_FunctionShift 7
-#define LED_SC_ChSceneE_Sequence                   74      // 2 Bits, Bit 7-6
+#define LED_SC_ChSceneE_Sequence                   47      // 2 Bits, Bit 7-6
 #define     LED_SC_ChSceneE_SequenceMask 0xC0
 #define     LED_SC_ChSceneE_SequenceShift 6
-#define LED_SC_ChSceneE_Brightness                 74      // uint8_t
-#define LED_SC_ChSceneF_Type                       77      // 3 Bits, Bit 7-5
+#define LED_SC_ChSceneE_Brightness                 47      // uint8_t
+#define LED_SC_ChSceneF_Type                       50      // 3 Bits, Bit 7-5
 #define     LED_SC_ChSceneF_TypeMask 0xE0
 #define     LED_SC_ChSceneF_TypeShift 5
-#define LED_SC_ChSceneF_ValueType                  77      // 3 Bits, Bit 4-2
+#define LED_SC_ChSceneF_ValueType                  50      // 3 Bits, Bit 4-2
 #define     LED_SC_ChSceneF_ValueTypeMask 0x1C
 #define     LED_SC_ChSceneF_ValueTypeShift 2
-#define LED_SC_ChSceneF_Lockobject                 77      // 1 Bit, Bit 1
+#define LED_SC_ChSceneF_Lockobject                 50      // 1 Bit, Bit 1
 #define     LED_SC_ChSceneF_LockobjectMask 0x02
 #define     LED_SC_ChSceneF_LockobjectShift 1
-#define LED_SC_ChSceneF_LockobjectFunc             77      // 2 Bits, Bit 0--1
-#define LED_SC_ChSceneF_AllowSave                  78      // 1 Bit, Bit 7
+#define LED_SC_ChSceneF_LockobjectFunc             50      // 2 Bits, Bit 0--1
+#define LED_SC_ChSceneF_AllowSave                  51      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneF_AllowSaveMask 0x80
 #define     LED_SC_ChSceneF_AllowSaveShift 7
-#define LED_SC_ChSceneF_Number                     78      // 7 Bits, Bit 6-0
+#define LED_SC_ChSceneF_Number                     51      // 7 Bits, Bit 6-0
 #define     LED_SC_ChSceneF_NumberMask 0x7F
 #define     LED_SC_ChSceneF_NumberShift 0
-#define LED_SC_ChSceneF_Function                   79      // 1 Bit, Bit 7
+#define LED_SC_ChSceneF_Function                   52      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneF_FunctionMask 0x80
 #define     LED_SC_ChSceneF_FunctionShift 7
-#define LED_SC_ChSceneF_Sequence                   79      // 2 Bits, Bit 7-6
+#define LED_SC_ChSceneF_Sequence                   52      // 2 Bits, Bit 7-6
 #define     LED_SC_ChSceneF_SequenceMask 0xC0
 #define     LED_SC_ChSceneF_SequenceShift 6
-#define LED_SC_ChSceneF_Brightness                 79      // uint8_t
-#define LED_SC_ChSceneG_Type                       82      // 3 Bits, Bit 7-5
+#define LED_SC_ChSceneF_Brightness                 52      // uint8_t
+#define LED_SC_ChSceneG_Type                       55      // 3 Bits, Bit 7-5
 #define     LED_SC_ChSceneG_TypeMask 0xE0
 #define     LED_SC_ChSceneG_TypeShift 5
-#define LED_SC_ChSceneG_ValueType                  82      // 3 Bits, Bit 4-2
+#define LED_SC_ChSceneG_ValueType                  55      // 3 Bits, Bit 4-2
 #define     LED_SC_ChSceneG_ValueTypeMask 0x1C
 #define     LED_SC_ChSceneG_ValueTypeShift 2
-#define LED_SC_ChSceneG_Lockobject                 82      // 1 Bit, Bit 1
+#define LED_SC_ChSceneG_Lockobject                 55      // 1 Bit, Bit 1
 #define     LED_SC_ChSceneG_LockobjectMask 0x02
 #define     LED_SC_ChSceneG_LockobjectShift 1
-#define LED_SC_ChSceneG_LockobjectFunc             82      // 2 Bits, Bit 0--1
-#define LED_SC_ChSceneG_AllowSave                  83      // 1 Bit, Bit 7
+#define LED_SC_ChSceneG_LockobjectFunc             55      // 2 Bits, Bit 0--1
+#define LED_SC_ChSceneG_AllowSave                  56      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneG_AllowSaveMask 0x80
 #define     LED_SC_ChSceneG_AllowSaveShift 7
-#define LED_SC_ChSceneG_Number                     83      // 7 Bits, Bit 6-0
+#define LED_SC_ChSceneG_Number                     56      // 7 Bits, Bit 6-0
 #define     LED_SC_ChSceneG_NumberMask 0x7F
 #define     LED_SC_ChSceneG_NumberShift 0
-#define LED_SC_ChSceneG_Function                   84      // 1 Bit, Bit 7
+#define LED_SC_ChSceneG_Function                   57      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneG_FunctionMask 0x80
 #define     LED_SC_ChSceneG_FunctionShift 7
-#define LED_SC_ChSceneG_Sequence                   84      // 2 Bits, Bit 7-6
+#define LED_SC_ChSceneG_Sequence                   57      // 2 Bits, Bit 7-6
 #define     LED_SC_ChSceneG_SequenceMask 0xC0
 #define     LED_SC_ChSceneG_SequenceShift 6
-#define LED_SC_ChSceneG_Brightness                 84      // uint8_t
-#define LED_SC_ChSceneH_Type                       87      // 3 Bits, Bit 7-5
+#define LED_SC_ChSceneG_Brightness                 57      // uint8_t
+#define LED_SC_ChSceneH_Type                       60      // 3 Bits, Bit 7-5
 #define     LED_SC_ChSceneH_TypeMask 0xE0
 #define     LED_SC_ChSceneH_TypeShift 5
-#define LED_SC_ChSceneH_ValueType                  87      // 3 Bits, Bit 4-2
+#define LED_SC_ChSceneH_ValueType                  60      // 3 Bits, Bit 4-2
 #define     LED_SC_ChSceneH_ValueTypeMask 0x1C
 #define     LED_SC_ChSceneH_ValueTypeShift 2
-#define LED_SC_ChSceneH_Lockobject                 87      // 1 Bit, Bit 1
+#define LED_SC_ChSceneH_Lockobject                 60      // 1 Bit, Bit 1
 #define     LED_SC_ChSceneH_LockobjectMask 0x02
 #define     LED_SC_ChSceneH_LockobjectShift 1
-#define LED_SC_ChSceneH_LockobjectFunc             87      // 2 Bits, Bit 0--1
-#define LED_SC_ChSceneH_AllowSave                  88      // 1 Bit, Bit 7
+#define LED_SC_ChSceneH_LockobjectFunc             60      // 2 Bits, Bit 0--1
+#define LED_SC_ChSceneH_AllowSave                  61      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneH_AllowSaveMask 0x80
 #define     LED_SC_ChSceneH_AllowSaveShift 7
-#define LED_SC_ChSceneH_Number                     88      // 7 Bits, Bit 6-0
+#define LED_SC_ChSceneH_Number                     61      // 7 Bits, Bit 6-0
 #define     LED_SC_ChSceneH_NumberMask 0x7F
 #define     LED_SC_ChSceneH_NumberShift 0
-#define LED_SC_ChSceneH_Function                   89      // 1 Bit, Bit 7
+#define LED_SC_ChSceneH_Function                   62      // 1 Bit, Bit 7
 #define     LED_SC_ChSceneH_FunctionMask 0x80
 #define     LED_SC_ChSceneH_FunctionShift 7
-#define LED_SC_ChSceneH_Sequence                   89      // 2 Bits, Bit 7-6
+#define LED_SC_ChSceneH_Sequence                   62      // 2 Bits, Bit 7-6
 #define     LED_SC_ChSceneH_SequenceMask 0xC0
 #define     LED_SC_ChSceneH_SequenceShift 6
-#define LED_SC_ChSceneH_Brightness                 89      // uint8_t
+#define LED_SC_ChSceneH_Brightness                 62      // uint8_t
+#define LED_SC_ChMeasureActive                     65      // 1 Bit, Bit 7
+#define     LED_SC_ChMeasureActiveMask 0x80
+#define     LED_SC_ChMeasureActiveShift 7
+#define LED_SC_ChProtecitonsActive                 65      // 1 Bit, Bit 6
+#define     LED_SC_ChProtecitonsActiveMask 0x40
+#define     LED_SC_ChProtecitonsActiveShift 6
+#define LED_SC_ChPowerSend                         65      // 1 Bit, Bit 5
+#define     LED_SC_ChPowerSendMask 0x20
+#define     LED_SC_ChPowerSendShift 5
+#define LED_SC_ChCurrentSend                       65      // 1 Bit, Bit 4
+#define     LED_SC_ChCurrentSendMask 0x10
+#define     LED_SC_ChCurrentSendShift 4
+#define LED_SC_ChDeviceProtActive                  65      // 1 Bit, Bit 3
+#define     LED_SC_ChDeviceProtActiveMask 0x08
+#define     LED_SC_ChDeviceProtActiveShift 3
+#define LED_SC_ChDeviceProtCutOff                  65      // 1 Bit, Bit 2
+#define     LED_SC_ChDeviceProtCutOffMask 0x04
+#define     LED_SC_ChDeviceProtCutOffShift 2
+#define LED_SC_ChLampProtActive                    65      // 1 Bit, Bit 1
+#define     LED_SC_ChLampProtActiveMask 0x02
+#define     LED_SC_ChLampProtActiveShift 1
+#define LED_SC_ChLampProtCutOff                    65      // 1 Bit, Bit 0
+#define     LED_SC_ChLampProtCutOffMask 0x01
+#define     LED_SC_ChLampProtCutOffShift 0
+#define LED_SC_ChPowerSendMinChangePercent         66      // uint8_t
+#define LED_SC_ChPowerSendMinChangeAbsolute        67      // uint16_t
+#define LED_SC_ChPowerSendCyclicBase               69      // 2 Bits, Bit 7-6
+#define     LED_SC_ChPowerSendCyclicBaseMask 0xC0
+#define     LED_SC_ChPowerSendCyclicBaseShift 6
+#define LED_SC_ChPowerSendCyclicTime               69      // 14 Bits, Bit 13-0
+#define     LED_SC_ChPowerSendCyclicTimeMask 0x3FFF
+#define     LED_SC_ChPowerSendCyclicTimeShift 0
+#define LED_SC_ChCurrentSendMinChangePercent       70      // uint8_t
+#define LED_SC_ChCurrentSendMinChangeAbsolute      71      // uint16_t
+#define LED_SC_ChCurrentSendCyclicBase             73      // 2 Bits, Bit 7-6
+#define     LED_SC_ChCurrentSendCyclicBaseMask 0xC0
+#define     LED_SC_ChCurrentSendCyclicBaseShift 6
+#define LED_SC_ChCurrentSendCyclicTime             73      // 14 Bits, Bit 13-0
+#define     LED_SC_ChCurrentSendCyclicTimeMask 0x3FFF
+#define     LED_SC_ChCurrentSendCyclicTimeShift 0
+#define LED_SC_ChDeviceProtConstCurrent            75      // uint8_t
+#define LED_SC_ChDeviceProtOverloadPercent         76      // uint8_t
+#define LED_SC_ChDeviceProtOverloadBase            77      // 2 Bits, Bit 7-6
+#define     LED_SC_ChDeviceProtOverloadBaseMask 0xC0
+#define     LED_SC_ChDeviceProtOverloadBaseShift 6
+#define LED_SC_ChDeviceProtOverloadTime            77      // 14 Bits, Bit 13-0
+#define     LED_SC_ChDeviceProtOverloadTimeMask 0x3FFF
+#define     LED_SC_ChDeviceProtOverloadTimeShift 0
+#define LED_SC_ChLampProtCableLength               79      // float
+#define LED_SC_ChLampProtConstPower                83      // uint16_t
+#define LED_SC_ChLampProtOverloadBase              85      // 2 Bits, Bit 7-6
+#define     LED_SC_ChLampProtOverloadBaseMask 0xC0
+#define     LED_SC_ChLampProtOverloadBaseShift 6
+#define LED_SC_ChLampProtOverloadTime              85      // 14 Bits, Bit 13-0
+#define     LED_SC_ChLampProtOverloadTimeMask 0x3FFF
+#define     LED_SC_ChLampProtOverloadTimeShift 0
+#define LED_SC_ChLampProtOverloadPercent           87      // uint8_t
+#define LED_SC_ChLampProtCableCrossSect            88      // 2 Bits, Bit 7-6
+#define     LED_SC_ChLampProtCableCrossSectMask 0xC0
+#define     LED_SC_ChLampProtCableCrossSectShift 6
 
 // Dimmzeit Tag An
 #define ParamLED_SC_ChLightDimmDayOnTime                (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChLightDimmDayOnTime)))
@@ -808,66 +808,6 @@
 #define ParamLED_SC_ChScenesActive                      ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChScenesActive)) & LED_SC_ChScenesActiveMask))
 // Deaktivierung bei Nachtumschaltung
 #define ParamLED_SC_ChScenesDisableNightSw              ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChScenesDisableNightSw)) & LED_SC_ChScenesDisableNightSwMask))
-// Messungen aktivieren
-#define ParamLED_SC_ChMeasureActive                     ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChMeasureActive)) & LED_SC_ChMeasureActiveMask))
-// Schutzfunktionen aktivieren
-#define ParamLED_SC_ChProtecitonsActive                 ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChProtecitonsActive)) & LED_SC_ChProtecitonsActiveMask))
-// Bei Änderung senden
-#define ParamLED_SC_ChPowerSend                         ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChPowerSend)) & LED_SC_ChPowerSendMask))
-// Bei Änderung senden
-#define ParamLED_SC_ChCurrentSend                       ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSend)) & LED_SC_ChCurrentSendMask))
-// Mindeständerung relativ
-#define ParamLED_SC_ChPowerSendMinChangePercent         (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendMinChangePercent)))
-// Mindeständerung absolut
-#define ParamLED_SC_ChPowerSendMinChangeAbsolute        (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendMinChangeAbsolute)))
-// Zeitbasis
-#define ParamLED_SC_ChPowerSendCyclicBase               ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendCyclicBase)) & LED_SC_ChPowerSendCyclicBaseMask) >> LED_SC_ChPowerSendCyclicBaseShift)
-// Zeit
-#define ParamLED_SC_ChPowerSendCyclicTime               (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendCyclicTime)) & LED_SC_ChPowerSendCyclicTimeMask)
-// Zeit (in Millisekunden)
-#define ParamLED_SC_ChPowerSendCyclicTimeMS             (paramDelay(knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendCyclicTime))))
-// Mindeständerung relativ
-#define ParamLED_SC_ChCurrentSendMinChangePercent       (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendMinChangePercent)))
-// Mindeständerung absolut
-#define ParamLED_SC_ChCurrentSendMinChangeAbsolute      (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendMinChangeAbsolute)))
-// Zeitbasis
-#define ParamLED_SC_ChCurrentSendCyclicBase             ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendCyclicBase)) & LED_SC_ChCurrentSendCyclicBaseMask) >> LED_SC_ChCurrentSendCyclicBaseShift)
-// Zeit
-#define ParamLED_SC_ChCurrentSendCyclicTime             (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendCyclicTime)) & LED_SC_ChCurrentSendCyclicTimeMask)
-// Zeit (in Millisekunden)
-#define ParamLED_SC_ChCurrentSendCyclicTimeMS           (paramDelay(knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendCyclicTime))))
-// Geräteschutz aktivieren
-#define ParamLED_SC_ChDeviceProtActive                  ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtActive)) & LED_SC_ChDeviceProtActiveMask))
-// Schutzabschaltung aktivieren
-#define ParamLED_SC_ChDeviceProtCutOff                  ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtCutOff)) & LED_SC_ChDeviceProtCutOffMask))
-// Dauerlast
-#define ParamLED_SC_ChDeviceProtContCurrent             (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtContCurrent)))
-// Max. Überlast
-#define ParamLED_SC_ChDeviceProtOverloadPercent         (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtOverloadPercent)))
-// Zeitbasis
-#define ParamLED_SC_ChDeviceProtOverloadBase            ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtOverloadBase)) & LED_SC_ChDeviceProtOverloadBaseMask) >> LED_SC_ChDeviceProtOverloadBaseShift)
-// Zeit
-#define ParamLED_SC_ChDeviceProtOverloadTime            (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtOverloadTime)) & LED_SC_ChDeviceProtOverloadTimeMask)
-// Zeit (in Millisekunden)
-#define ParamLED_SC_ChDeviceProtOverloadTimeMS          (paramDelay(knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtOverloadTime))))
-// Leuchtmittelschutz aktivieren
-#define ParamLED_SC_ChLampProtActive                    ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtActive)) & LED_SC_ChLampProtActiveMask))
-// Schutzabschaltung aktivieren
-#define ParamLED_SC_ChLampProtCutOff                    ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtCutOff)) & LED_SC_ChLampProtCutOffMask))
-// Leiterquerschnitt
-#define ParamLED_SC_ChLampProtCableCrossSect            ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtCableCrossSect)) & LED_SC_ChLampProtCableCrossSectMask) >> LED_SC_ChLampProtCableCrossSectShift)
-// Kabellänge
-#define ParamLED_SC_ChLampProtCableLength               (knx.paramFloat(LED_SC_ParamCalcIndex(LED_SC_ChLampProtCableLength), Float_Enc_IEEE754Single))
-// Dauerleistung
-#define ParamLED_SC_ChLampProtContPower                 (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChLampProtContPower)))
-// Max. Überlast
-#define ParamLED_SC_ChLampProtOverloadPercent           (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtOverloadPercent)))
-// Zeitbasis
-#define ParamLED_SC_ChLampProtOverloadBase              ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtOverloadBase)) & LED_SC_ChLampProtOverloadBaseMask) >> LED_SC_ChLampProtOverloadBaseShift)
-// Zeit
-#define ParamLED_SC_ChLampProtOverloadTime              (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChLampProtOverloadTime)) & LED_SC_ChLampProtOverloadTimeMask)
-// Zeit (in Millisekunden)
-#define ParamLED_SC_ChLampProtOverloadTimeMS            (paramDelay(knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChLampProtOverloadTime))))
 // Typ
 #define ParamLED_SC_ChSceneA_Type                       ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChSceneA_Type)) & LED_SC_ChSceneA_TypeMask) >> LED_SC_ChSceneA_TypeShift)
 // Typ
@@ -1012,6 +952,66 @@
 #define ParamLED_SC_ChSceneH_Sequence                   ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChSceneH_Sequence)) & LED_SC_ChSceneH_SequenceMask) >> LED_SC_ChSceneH_SequenceShift)
 // Helligkeit
 #define ParamLED_SC_ChSceneH_Brightness                 (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChSceneH_Brightness)))
+// Messungen aktivieren
+#define ParamLED_SC_ChMeasureActive                     ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChMeasureActive)) & LED_SC_ChMeasureActiveMask))
+// Schutzfunktionen aktivieren
+#define ParamLED_SC_ChProtecitonsActive                 ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChProtecitonsActive)) & LED_SC_ChProtecitonsActiveMask))
+// Bei Änderung senden
+#define ParamLED_SC_ChPowerSend                         ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChPowerSend)) & LED_SC_ChPowerSendMask))
+// Bei Änderung senden
+#define ParamLED_SC_ChCurrentSend                       ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSend)) & LED_SC_ChCurrentSendMask))
+// Geräteschutz aktivieren
+#define ParamLED_SC_ChDeviceProtActive                  ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtActive)) & LED_SC_ChDeviceProtActiveMask))
+// Schutzabschaltung aktivieren
+#define ParamLED_SC_ChDeviceProtCutOff                  ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtCutOff)) & LED_SC_ChDeviceProtCutOffMask))
+// Leuchtmittelschutz aktivieren
+#define ParamLED_SC_ChLampProtActive                    ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtActive)) & LED_SC_ChLampProtActiveMask))
+// Schutzabschaltung aktivieren
+#define ParamLED_SC_ChLampProtCutOff                    ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtCutOff)) & LED_SC_ChLampProtCutOffMask))
+// Mindeständerung relativ
+#define ParamLED_SC_ChPowerSendMinChangePercent         (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendMinChangePercent)))
+// Mindeständerung absolut
+#define ParamLED_SC_ChPowerSendMinChangeAbsolute        (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendMinChangeAbsolute)))
+// Zeitbasis
+#define ParamLED_SC_ChPowerSendCyclicBase               ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendCyclicBase)) & LED_SC_ChPowerSendCyclicBaseMask) >> LED_SC_ChPowerSendCyclicBaseShift)
+// Zeit
+#define ParamLED_SC_ChPowerSendCyclicTime               (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendCyclicTime)) & LED_SC_ChPowerSendCyclicTimeMask)
+// Zeit (in Millisekunden)
+#define ParamLED_SC_ChPowerSendCyclicTimeMS             (paramDelay(knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendCyclicTime))))
+// Mindeständerung relativ
+#define ParamLED_SC_ChCurrentSendMinChangePercent       (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendMinChangePercent)))
+// Mindeständerung absolut
+#define ParamLED_SC_ChCurrentSendMinChangeAbsolute      (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendMinChangeAbsolute)))
+// Zeitbasis
+#define ParamLED_SC_ChCurrentSendCyclicBase             ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendCyclicBase)) & LED_SC_ChCurrentSendCyclicBaseMask) >> LED_SC_ChCurrentSendCyclicBaseShift)
+// Zeit
+#define ParamLED_SC_ChCurrentSendCyclicTime             (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendCyclicTime)) & LED_SC_ChCurrentSendCyclicTimeMask)
+// Zeit (in Millisekunden)
+#define ParamLED_SC_ChCurrentSendCyclicTimeMS           (paramDelay(knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendCyclicTime))))
+// Dauerlast
+#define ParamLED_SC_ChDeviceProtConstCurrent            (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtConstCurrent)))
+// Max. Überlast
+#define ParamLED_SC_ChDeviceProtOverloadPercent         (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtOverloadPercent)))
+// Zeitbasis
+#define ParamLED_SC_ChDeviceProtOverloadBase            ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtOverloadBase)) & LED_SC_ChDeviceProtOverloadBaseMask) >> LED_SC_ChDeviceProtOverloadBaseShift)
+// Zeit
+#define ParamLED_SC_ChDeviceProtOverloadTime            (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtOverloadTime)) & LED_SC_ChDeviceProtOverloadTimeMask)
+// Zeit (in Millisekunden)
+#define ParamLED_SC_ChDeviceProtOverloadTimeMS          (paramDelay(knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtOverloadTime))))
+// Kabellänge
+#define ParamLED_SC_ChLampProtCableLength               (knx.paramFloat(LED_SC_ParamCalcIndex(LED_SC_ChLampProtCableLength), Float_Enc_IEEE754Single))
+// Dauerleistung
+#define ParamLED_SC_ChLampProtConstPower                (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChLampProtConstPower)))
+// Zeitbasis
+#define ParamLED_SC_ChLampProtOverloadBase              ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtOverloadBase)) & LED_SC_ChLampProtOverloadBaseMask) >> LED_SC_ChLampProtOverloadBaseShift)
+// Zeit
+#define ParamLED_SC_ChLampProtOverloadTime              (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChLampProtOverloadTime)) & LED_SC_ChLampProtOverloadTimeMask)
+// Zeit (in Millisekunden)
+#define ParamLED_SC_ChLampProtOverloadTimeMS            (paramDelay(knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChLampProtOverloadTime))))
+// Max. Überlast
+#define ParamLED_SC_ChLampProtOverloadPercent           (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtOverloadPercent)))
+// Leiterquerschnitt
+#define ParamLED_SC_ChLampProtCableCrossSect            ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtCableCrossSect)) & LED_SC_ChLampProtCableCrossSectMask) >> LED_SC_ChLampProtCableCrossSectShift)
 
 // deprecated
 #define LED_SC_KoOffset 30
@@ -1036,9 +1036,9 @@
 #define LED_SC_KoChScene 9
 #define LED_SC_KoChPower 10
 #define LED_SC_KoChCurrent 11
-#define LED_SC_KoChDeviceProtContCurrent 12
+#define LED_SC_KoChDeviceProtConstCurrent 12
 #define LED_SC_KoChDeviceProtOverload 13
-#define LED_SC_KoChLampProtContCurrent 14
+#define LED_SC_KoChLampProtConstCurrent 14
 #define LED_SC_KoChLampProtOverload 15
 
 // Schalten
@@ -1066,19 +1066,19 @@
 // Strom
 #define KoLED_SC_ChCurrent                           (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChCurrent)))
 // Geräteschutz
-#define KoLED_SC_ChDeviceProtContCurrent             (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChDeviceProtContCurrent)))
+#define KoLED_SC_ChDeviceProtConstCurrent            (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChDeviceProtConstCurrent)))
 // Geräteschutz
 #define KoLED_SC_ChDeviceProtOverload                (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChDeviceProtOverload)))
 // Leuchtmittelschutz
-#define KoLED_SC_ChLampProtContCurrent               (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChLampProtContCurrent)))
+#define KoLED_SC_ChLampProtConstCurrent              (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChLampProtConstCurrent)))
 // Leuchtmittelschutz
 #define KoLED_SC_ChLampProtOverload                  (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChLampProtOverload)))
 
 #define LED_TW_ChannelCount 8
 
 // Parameter per channel
-#define LED_TW_ParamBlockOffset 1733
-#define LED_TW_ParamBlockSize 78
+#define LED_TW_ParamBlockOffset 1685
+#define LED_TW_ParamBlockSize 102
 #define LED_TW_ParamCalcIndex(index) (index + LED_TW_ParamBlockOffset + _channelIndex * LED_TW_ParamBlockSize)
 
 #define LED_TW_ChLightDimmDayOnTime                 0      // uint16_t
@@ -1340,6 +1340,66 @@
 #define     LED_TW_ChSceneH_SequenceShift 6
 #define LED_TW_ChSceneH_Brightness                 75      // uint8_t
 #define LED_TW_ChSceneH_TW                         76      // uint16_t
+#define LED_TW_ChMeasureActive                     78      // 1 Bit, Bit 7
+#define     LED_TW_ChMeasureActiveMask 0x80
+#define     LED_TW_ChMeasureActiveShift 7
+#define LED_TW_ChProtecitonsActive                 78      // 1 Bit, Bit 6
+#define     LED_TW_ChProtecitonsActiveMask 0x40
+#define     LED_TW_ChProtecitonsActiveShift 6
+#define LED_TW_ChPowerSend                         78      // 1 Bit, Bit 5
+#define     LED_TW_ChPowerSendMask 0x20
+#define     LED_TW_ChPowerSendShift 5
+#define LED_TW_ChCurrentSend                       78      // 1 Bit, Bit 4
+#define     LED_TW_ChCurrentSendMask 0x10
+#define     LED_TW_ChCurrentSendShift 4
+#define LED_TW_ChDeviceProtActive                  78      // 1 Bit, Bit 3
+#define     LED_TW_ChDeviceProtActiveMask 0x08
+#define     LED_TW_ChDeviceProtActiveShift 3
+#define LED_TW_ChDeviceProtCutOff                  78      // 1 Bit, Bit 2
+#define     LED_TW_ChDeviceProtCutOffMask 0x04
+#define     LED_TW_ChDeviceProtCutOffShift 2
+#define LED_TW_ChLampProtActive                    78      // 1 Bit, Bit 1
+#define     LED_TW_ChLampProtActiveMask 0x02
+#define     LED_TW_ChLampProtActiveShift 1
+#define LED_TW_ChLampProtCutOff                    78      // 1 Bit, Bit 0
+#define     LED_TW_ChLampProtCutOffMask 0x01
+#define     LED_TW_ChLampProtCutOffShift 0
+#define LED_TW_ChPowerSendMinChangePercent         79      // uint8_t
+#define LED_TW_ChPowerSendMinChangeAbsolute        80      // uint16_t
+#define LED_TW_ChPowerSendCyclicBase               82      // 2 Bits, Bit 7-6
+#define     LED_TW_ChPowerSendCyclicBaseMask 0xC0
+#define     LED_TW_ChPowerSendCyclicBaseShift 6
+#define LED_TW_ChPowerSendCyclicTime               82      // 14 Bits, Bit 13-0
+#define     LED_TW_ChPowerSendCyclicTimeMask 0x3FFF
+#define     LED_TW_ChPowerSendCyclicTimeShift 0
+#define LED_TW_ChCurrentSendMinChangePercent       83      // uint8_t
+#define LED_TW_ChCurrentSendMinChangeAbsolute      84      // uint16_t
+#define LED_TW_ChCurrentSendCyclicBase             86      // 2 Bits, Bit 7-6
+#define     LED_TW_ChCurrentSendCyclicBaseMask 0xC0
+#define     LED_TW_ChCurrentSendCyclicBaseShift 6
+#define LED_TW_ChCurrentSendCyclicTime             86      // 14 Bits, Bit 13-0
+#define     LED_TW_ChCurrentSendCyclicTimeMask 0x3FFF
+#define     LED_TW_ChCurrentSendCyclicTimeShift 0
+#define LED_TW_ChDeviceProtConstCurrent            88      // uint8_t
+#define LED_TW_ChDeviceProtOverloadPercent         89      // uint8_t
+#define LED_TW_ChDeviceProtOverloadBase            90      // 2 Bits, Bit 7-6
+#define     LED_TW_ChDeviceProtOverloadBaseMask 0xC0
+#define     LED_TW_ChDeviceProtOverloadBaseShift 6
+#define LED_TW_ChDeviceProtOverloadTime            90      // 14 Bits, Bit 13-0
+#define     LED_TW_ChDeviceProtOverloadTimeMask 0x3FFF
+#define     LED_TW_ChDeviceProtOverloadTimeShift 0
+#define LED_TW_ChLampProtCableLength               92      // float
+#define LED_TW_ChLampProtConstPower                96      // uint16_t
+#define LED_TW_ChLampProtOverloadBase              98      // 2 Bits, Bit 7-6
+#define     LED_TW_ChLampProtOverloadBaseMask 0xC0
+#define     LED_TW_ChLampProtOverloadBaseShift 6
+#define LED_TW_ChLampProtOverloadTime              98      // 14 Bits, Bit 13-0
+#define     LED_TW_ChLampProtOverloadTimeMask 0x3FFF
+#define     LED_TW_ChLampProtOverloadTimeShift 0
+#define LED_TW_ChLampProtOverloadPercent           100      // uint8_t
+#define LED_TW_ChLampProtCableCrossSect            101      // 2 Bits, Bit 7-6
+#define     LED_TW_ChLampProtCableCrossSectMask 0xC0
+#define     LED_TW_ChLampProtCableCrossSectShift 6
 
 // Dimmzeit Tag An
 #define ParamLED_TW_ChLightDimmDayOnTime                (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChLightDimmDayOnTime)))
@@ -1575,13 +1635,73 @@
 #define ParamLED_TW_ChSceneH_Brightness                 (knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChSceneH_Brightness)))
 // Lichtfarbe
 #define ParamLED_TW_ChSceneH_TW                         (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChSceneH_TW)))
+// Messungen aktivieren
+#define ParamLED_TW_ChMeasureActive                     ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChMeasureActive)) & LED_TW_ChMeasureActiveMask))
+// Schutzfunktionen aktivieren
+#define ParamLED_TW_ChProtecitonsActive                 ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChProtecitonsActive)) & LED_TW_ChProtecitonsActiveMask))
+// Bei Änderung senden
+#define ParamLED_TW_ChPowerSend                         ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChPowerSend)) & LED_TW_ChPowerSendMask))
+// Bei Änderung senden
+#define ParamLED_TW_ChCurrentSend                       ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChCurrentSend)) & LED_TW_ChCurrentSendMask))
+// Geräteschutz aktivieren
+#define ParamLED_TW_ChDeviceProtActive                  ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtActive)) & LED_TW_ChDeviceProtActiveMask))
+// Schutzabschaltung aktivieren
+#define ParamLED_TW_ChDeviceProtCutOff                  ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtCutOff)) & LED_TW_ChDeviceProtCutOffMask))
+// Leuchtmittelschutz aktivieren
+#define ParamLED_TW_ChLampProtActive                    ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChLampProtActive)) & LED_TW_ChLampProtActiveMask))
+// Schutzabschaltung aktivieren
+#define ParamLED_TW_ChLampProtCutOff                    ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChLampProtCutOff)) & LED_TW_ChLampProtCutOffMask))
+// Mindeständerung relativ
+#define ParamLED_TW_ChPowerSendMinChangePercent         (knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChPowerSendMinChangePercent)))
+// Mindeständerung absolut
+#define ParamLED_TW_ChPowerSendMinChangeAbsolute        (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChPowerSendMinChangeAbsolute)))
+// Zeitbasis
+#define ParamLED_TW_ChPowerSendCyclicBase               ((knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChPowerSendCyclicBase)) & LED_TW_ChPowerSendCyclicBaseMask) >> LED_TW_ChPowerSendCyclicBaseShift)
+// Zeit
+#define ParamLED_TW_ChPowerSendCyclicTime               (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChPowerSendCyclicTime)) & LED_TW_ChPowerSendCyclicTimeMask)
+// Zeit (in Millisekunden)
+#define ParamLED_TW_ChPowerSendCyclicTimeMS             (paramDelay(knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChPowerSendCyclicTime))))
+// Mindeständerung relativ
+#define ParamLED_TW_ChCurrentSendMinChangePercent       (knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChCurrentSendMinChangePercent)))
+// Mindeständerung absolut
+#define ParamLED_TW_ChCurrentSendMinChangeAbsolute      (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChCurrentSendMinChangeAbsolute)))
+// Zeitbasis
+#define ParamLED_TW_ChCurrentSendCyclicBase             ((knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChCurrentSendCyclicBase)) & LED_TW_ChCurrentSendCyclicBaseMask) >> LED_TW_ChCurrentSendCyclicBaseShift)
+// Zeit
+#define ParamLED_TW_ChCurrentSendCyclicTime             (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChCurrentSendCyclicTime)) & LED_TW_ChCurrentSendCyclicTimeMask)
+// Zeit (in Millisekunden)
+#define ParamLED_TW_ChCurrentSendCyclicTimeMS           (paramDelay(knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChCurrentSendCyclicTime))))
+// Dauerlast
+#define ParamLED_TW_ChDeviceProtConstCurrent            (knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtConstCurrent)))
+// Max. Überlast
+#define ParamLED_TW_ChDeviceProtOverloadPercent         (knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtOverloadPercent)))
+// Zeitbasis
+#define ParamLED_TW_ChDeviceProtOverloadBase            ((knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtOverloadBase)) & LED_TW_ChDeviceProtOverloadBaseMask) >> LED_TW_ChDeviceProtOverloadBaseShift)
+// Zeit
+#define ParamLED_TW_ChDeviceProtOverloadTime            (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtOverloadTime)) & LED_TW_ChDeviceProtOverloadTimeMask)
+// Zeit (in Millisekunden)
+#define ParamLED_TW_ChDeviceProtOverloadTimeMS          (paramDelay(knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtOverloadTime))))
+// Kabellänge
+#define ParamLED_TW_ChLampProtCableLength               (knx.paramFloat(LED_TW_ParamCalcIndex(LED_TW_ChLampProtCableLength), Float_Enc_IEEE754Single))
+// Dauerleistung
+#define ParamLED_TW_ChLampProtConstPower                (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChLampProtConstPower)))
+// Zeitbasis
+#define ParamLED_TW_ChLampProtOverloadBase              ((knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChLampProtOverloadBase)) & LED_TW_ChLampProtOverloadBaseMask) >> LED_TW_ChLampProtOverloadBaseShift)
+// Zeit
+#define ParamLED_TW_ChLampProtOverloadTime              (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChLampProtOverloadTime)) & LED_TW_ChLampProtOverloadTimeMask)
+// Zeit (in Millisekunden)
+#define ParamLED_TW_ChLampProtOverloadTimeMS            (paramDelay(knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChLampProtOverloadTime))))
+// Max. Überlast
+#define ParamLED_TW_ChLampProtOverloadPercent           (knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChLampProtOverloadPercent)))
+// Leiterquerschnitt
+#define ParamLED_TW_ChLampProtCableCrossSect            ((knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChLampProtCableCrossSect)) & LED_TW_ChLampProtCableCrossSectMask) >> LED_TW_ChLampProtCableCrossSectShift)
 
 // deprecated
 #define LED_TW_KoOffset 290
 
 // Communication objects per channel (multiple occurrence)
 #define LED_TW_KoBlockOffset 290
-#define LED_TW_KoBlockSize 14
+#define LED_TW_KoBlockSize 20
 
 #define LED_TW_KoCalcNumber(index) (index + LED_TW_KoBlockOffset + _channelIndex * LED_TW_KoBlockSize)
 #define LED_TW_KoCalcIndex(number) ((number >= LED_TW_KoCalcNumber(0) && number < LED_TW_KoCalcNumber(LED_TW_KoBlockSize)) ? (number - LED_TW_KoBlockOffset) % LED_TW_KoBlockSize : -1)
@@ -1601,6 +1721,12 @@
 #define LED_TW_KoChColorTemperatureStatus 11
 #define LED_TW_KoChNight 12
 #define LED_TW_KoChScene 13
+#define LED_TW_KoChPower 14
+#define LED_TW_KoChCurrent 15
+#define LED_TW_KoChDeviceProtConstCurrent 16
+#define LED_TW_KoChDeviceProtOverload 17
+#define LED_TW_KoChLampProtConstCurrent 18
+#define LED_TW_KoChLampProtOverload 19
 
 // Schalten
 #define KoLED_TW_ChSwitch                            (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChSwitch)))
@@ -1630,12 +1756,24 @@
 #define KoLED_TW_ChNight                             (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChNight)))
 // Szene
 #define KoLED_TW_ChScene                             (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChScene)))
+// Leistung
+#define KoLED_TW_ChPower                             (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChPower)))
+// Strom
+#define KoLED_TW_ChCurrent                           (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChCurrent)))
+// Geräteschutz
+#define KoLED_TW_ChDeviceProtConstCurrent            (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChDeviceProtConstCurrent)))
+// Geräteschutz
+#define KoLED_TW_ChDeviceProtOverload                (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChDeviceProtOverload)))
+// Leuchtmittelschutz
+#define KoLED_TW_ChLampProtConstCurrent              (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChLampProtConstCurrent)))
+// Leuchtmittelschutz
+#define KoLED_TW_ChLampProtOverload                  (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChLampProtOverload)))
 
 #define LED_RGB_ChannelCount 5
 
 // Parameter per channel
-#define LED_RGB_ParamBlockOffset 2357
-#define LED_RGB_ParamBlockSize 86
+#define LED_RGB_ParamBlockOffset 2501
+#define LED_RGB_ParamBlockSize 110
 #define LED_RGB_ParamCalcIndex(index) (index + LED_RGB_ParamBlockOffset + _channelIndex * LED_RGB_ParamBlockSize)
 
 #define LED_RGB_ChLightDimmDayOnTime                 0      // uint16_t
@@ -1969,6 +2107,66 @@
 #define     LED_RGB_ChSceneH_RGBShift 8
 #define LED_RGB_ChSceneH_Hue                        83      // uint8_t
 #define LED_RGB_ChSceneH_Sat                        83      // uint8_t
+#define LED_RGB_ChMeasureActive                     86      // 1 Bit, Bit 7
+#define     LED_RGB_ChMeasureActiveMask 0x80
+#define     LED_RGB_ChMeasureActiveShift 7
+#define LED_RGB_ChProtecitonsActive                 86      // 1 Bit, Bit 6
+#define     LED_RGB_ChProtecitonsActiveMask 0x40
+#define     LED_RGB_ChProtecitonsActiveShift 6
+#define LED_RGB_ChPowerSend                         86      // 1 Bit, Bit 5
+#define     LED_RGB_ChPowerSendMask 0x20
+#define     LED_RGB_ChPowerSendShift 5
+#define LED_RGB_ChCurrentSend                       86      // 1 Bit, Bit 4
+#define     LED_RGB_ChCurrentSendMask 0x10
+#define     LED_RGB_ChCurrentSendShift 4
+#define LED_RGB_ChDeviceProtActive                  86      // 1 Bit, Bit 3
+#define     LED_RGB_ChDeviceProtActiveMask 0x08
+#define     LED_RGB_ChDeviceProtActiveShift 3
+#define LED_RGB_ChDeviceProtCutOff                  86      // 1 Bit, Bit 2
+#define     LED_RGB_ChDeviceProtCutOffMask 0x04
+#define     LED_RGB_ChDeviceProtCutOffShift 2
+#define LED_RGB_ChLampProtActive                    86      // 1 Bit, Bit 1
+#define     LED_RGB_ChLampProtActiveMask 0x02
+#define     LED_RGB_ChLampProtActiveShift 1
+#define LED_RGB_ChLampProtCutOff                    86      // 1 Bit, Bit 0
+#define     LED_RGB_ChLampProtCutOffMask 0x01
+#define     LED_RGB_ChLampProtCutOffShift 0
+#define LED_RGB_ChPowerSendMinChangePercent         87      // uint8_t
+#define LED_RGB_ChPowerSendMinChangeAbsolute        88      // uint16_t
+#define LED_RGB_ChPowerSendCyclicBase               90      // 2 Bits, Bit 7-6
+#define     LED_RGB_ChPowerSendCyclicBaseMask 0xC0
+#define     LED_RGB_ChPowerSendCyclicBaseShift 6
+#define LED_RGB_ChPowerSendCyclicTime               90      // 14 Bits, Bit 13-0
+#define     LED_RGB_ChPowerSendCyclicTimeMask 0x3FFF
+#define     LED_RGB_ChPowerSendCyclicTimeShift 0
+#define LED_RGB_ChCurrentSendMinChangePercent       91      // uint8_t
+#define LED_RGB_ChCurrentSendMinChangeAbsolute      92      // uint16_t
+#define LED_RGB_ChCurrentSendCyclicBase             94      // 2 Bits, Bit 7-6
+#define     LED_RGB_ChCurrentSendCyclicBaseMask 0xC0
+#define     LED_RGB_ChCurrentSendCyclicBaseShift 6
+#define LED_RGB_ChCurrentSendCyclicTime             94      // 14 Bits, Bit 13-0
+#define     LED_RGB_ChCurrentSendCyclicTimeMask 0x3FFF
+#define     LED_RGB_ChCurrentSendCyclicTimeShift 0
+#define LED_RGB_ChDeviceProtConstCurrent            96      // uint8_t
+#define LED_RGB_ChDeviceProtOverloadPercent         97      // uint8_t
+#define LED_RGB_ChDeviceProtOverloadBase            98      // 2 Bits, Bit 7-6
+#define     LED_RGB_ChDeviceProtOverloadBaseMask 0xC0
+#define     LED_RGB_ChDeviceProtOverloadBaseShift 6
+#define LED_RGB_ChDeviceProtOverloadTime            98      // 14 Bits, Bit 13-0
+#define     LED_RGB_ChDeviceProtOverloadTimeMask 0x3FFF
+#define     LED_RGB_ChDeviceProtOverloadTimeShift 0
+#define LED_RGB_ChLampProtCableLength               100      // float
+#define LED_RGB_ChLampProtConstPower                104      // uint16_t
+#define LED_RGB_ChLampProtOverloadBase              106      // 2 Bits, Bit 7-6
+#define     LED_RGB_ChLampProtOverloadBaseMask 0xC0
+#define     LED_RGB_ChLampProtOverloadBaseShift 6
+#define LED_RGB_ChLampProtOverloadTime              106      // 14 Bits, Bit 13-0
+#define     LED_RGB_ChLampProtOverloadTimeMask 0x3FFF
+#define     LED_RGB_ChLampProtOverloadTimeShift 0
+#define LED_RGB_ChLampProtOverloadPercent           108      // uint8_t
+#define LED_RGB_ChLampProtCableCrossSect            109      // 2 Bits, Bit 7-6
+#define     LED_RGB_ChLampProtCableCrossSectMask 0xC0
+#define     LED_RGB_ChLampProtCableCrossSectShift 6
 
 // Dimmzeit Tag An
 #define ParamLED_RGB_ChLightDimmDayOnTime                (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChLightDimmDayOnTime)))
@@ -2268,13 +2466,73 @@
 #define ParamLED_RGB_ChSceneH_Hue                        (knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChSceneH_Hue)))
 // Saturation
 #define ParamLED_RGB_ChSceneH_Sat                        (knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChSceneH_Sat)))
+// Messungen aktivieren
+#define ParamLED_RGB_ChMeasureActive                     ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChMeasureActive)) & LED_RGB_ChMeasureActiveMask))
+// Schutzfunktionen aktivieren
+#define ParamLED_RGB_ChProtecitonsActive                 ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChProtecitonsActive)) & LED_RGB_ChProtecitonsActiveMask))
+// Bei Änderung senden
+#define ParamLED_RGB_ChPowerSend                         ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChPowerSend)) & LED_RGB_ChPowerSendMask))
+// Bei Änderung senden
+#define ParamLED_RGB_ChCurrentSend                       ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChCurrentSend)) & LED_RGB_ChCurrentSendMask))
+// Geräteschutz aktivieren
+#define ParamLED_RGB_ChDeviceProtActive                  ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtActive)) & LED_RGB_ChDeviceProtActiveMask))
+// Schutzabschaltung aktivieren
+#define ParamLED_RGB_ChDeviceProtCutOff                  ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtCutOff)) & LED_RGB_ChDeviceProtCutOffMask))
+// Leuchtmittelschutz aktivieren
+#define ParamLED_RGB_ChLampProtActive                    ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtActive)) & LED_RGB_ChLampProtActiveMask))
+// Schutzabschaltung aktivieren
+#define ParamLED_RGB_ChLampProtCutOff                    ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtCutOff)) & LED_RGB_ChLampProtCutOffMask))
+// Mindeständerung relativ
+#define ParamLED_RGB_ChPowerSendMinChangePercent         (knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChPowerSendMinChangePercent)))
+// Mindeständerung absolut
+#define ParamLED_RGB_ChPowerSendMinChangeAbsolute        (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChPowerSendMinChangeAbsolute)))
+// Zeitbasis
+#define ParamLED_RGB_ChPowerSendCyclicBase               ((knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChPowerSendCyclicBase)) & LED_RGB_ChPowerSendCyclicBaseMask) >> LED_RGB_ChPowerSendCyclicBaseShift)
+// Zeit
+#define ParamLED_RGB_ChPowerSendCyclicTime               (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChPowerSendCyclicTime)) & LED_RGB_ChPowerSendCyclicTimeMask)
+// Zeit (in Millisekunden)
+#define ParamLED_RGB_ChPowerSendCyclicTimeMS             (paramDelay(knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChPowerSendCyclicTime))))
+// Mindeständerung relativ
+#define ParamLED_RGB_ChCurrentSendMinChangePercent       (knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChCurrentSendMinChangePercent)))
+// Mindeständerung absolut
+#define ParamLED_RGB_ChCurrentSendMinChangeAbsolute      (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChCurrentSendMinChangeAbsolute)))
+// Zeitbasis
+#define ParamLED_RGB_ChCurrentSendCyclicBase             ((knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChCurrentSendCyclicBase)) & LED_RGB_ChCurrentSendCyclicBaseMask) >> LED_RGB_ChCurrentSendCyclicBaseShift)
+// Zeit
+#define ParamLED_RGB_ChCurrentSendCyclicTime             (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChCurrentSendCyclicTime)) & LED_RGB_ChCurrentSendCyclicTimeMask)
+// Zeit (in Millisekunden)
+#define ParamLED_RGB_ChCurrentSendCyclicTimeMS           (paramDelay(knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChCurrentSendCyclicTime))))
+// Dauerlast
+#define ParamLED_RGB_ChDeviceProtConstCurrent            (knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtConstCurrent)))
+// Max. Überlast
+#define ParamLED_RGB_ChDeviceProtOverloadPercent         (knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtOverloadPercent)))
+// Zeitbasis
+#define ParamLED_RGB_ChDeviceProtOverloadBase            ((knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtOverloadBase)) & LED_RGB_ChDeviceProtOverloadBaseMask) >> LED_RGB_ChDeviceProtOverloadBaseShift)
+// Zeit
+#define ParamLED_RGB_ChDeviceProtOverloadTime            (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtOverloadTime)) & LED_RGB_ChDeviceProtOverloadTimeMask)
+// Zeit (in Millisekunden)
+#define ParamLED_RGB_ChDeviceProtOverloadTimeMS          (paramDelay(knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtOverloadTime))))
+// Kabellänge
+#define ParamLED_RGB_ChLampProtCableLength               (knx.paramFloat(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtCableLength), Float_Enc_IEEE754Single))
+// Dauerleistung
+#define ParamLED_RGB_ChLampProtConstPower                (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtConstPower)))
+// Zeitbasis
+#define ParamLED_RGB_ChLampProtOverloadBase              ((knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtOverloadBase)) & LED_RGB_ChLampProtOverloadBaseMask) >> LED_RGB_ChLampProtOverloadBaseShift)
+// Zeit
+#define ParamLED_RGB_ChLampProtOverloadTime              (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtOverloadTime)) & LED_RGB_ChLampProtOverloadTimeMask)
+// Zeit (in Millisekunden)
+#define ParamLED_RGB_ChLampProtOverloadTimeMS            (paramDelay(knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtOverloadTime))))
+// Max. Überlast
+#define ParamLED_RGB_ChLampProtOverloadPercent           (knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtOverloadPercent)))
+// Leiterquerschnitt
+#define ParamLED_RGB_ChLampProtCableCrossSect            ((knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtCableCrossSect)) & LED_RGB_ChLampProtCableCrossSectMask) >> LED_RGB_ChLampProtCableCrossSectShift)
 
 // deprecated
 #define LED_RGB_KoOffset 450
 
 // Communication objects per channel (multiple occurrence)
 #define LED_RGB_KoBlockOffset 450
-#define LED_RGB_KoBlockSize 17
+#define LED_RGB_KoBlockSize 23
 
 #define LED_RGB_KoCalcNumber(index) (index + LED_RGB_KoBlockOffset + _channelIndex * LED_RGB_KoBlockSize)
 #define LED_RGB_KoCalcIndex(number) ((number >= LED_RGB_KoCalcNumber(0) && number < LED_RGB_KoCalcNumber(LED_RGB_KoBlockSize)) ? (number - LED_RGB_KoBlockOffset) % LED_RGB_KoBlockSize : -1)
@@ -2297,6 +2555,12 @@
 #define LED_RGB_KoChHSVStatus 14
 #define LED_RGB_KoChNight 15
 #define LED_RGB_KoChScene 16
+#define LED_RGB_KoChPower 17
+#define LED_RGB_KoChCurrent 18
+#define LED_RGB_KoChDeviceProtConstCurrent 19
+#define LED_RGB_KoChDeviceProtOverload 20
+#define LED_RGB_KoChLampProtConstCurrent 21
+#define LED_RGB_KoChLampProtOverload 22
 
 // Schalten
 #define KoLED_RGB_ChSwitch                            (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChSwitch)))
@@ -2332,26 +2596,100 @@
 #define KoLED_RGB_ChNight                             (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChNight)))
 // Szene
 #define KoLED_RGB_ChScene                             (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChScene)))
+// Leistung
+#define KoLED_RGB_ChPower                             (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChPower)))
+// Strom
+#define KoLED_RGB_ChCurrent                           (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChCurrent)))
+// Geräteschutz
+#define KoLED_RGB_ChDeviceProtConstCurrent            (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChDeviceProtConstCurrent)))
+// Geräteschutz
+#define KoLED_RGB_ChDeviceProtOverload                (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChDeviceProtOverload)))
+// Leuchtmittelschutz
+#define KoLED_RGB_ChLampProtConstCurrent              (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChLampProtConstCurrent)))
+// Leuchtmittelschutz
+#define KoLED_RGB_ChLampProtOverload                  (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChLampProtOverload)))
 
-#define SWA_VisibleChannels                     2787      // uint8_t
-#define SWA_HardwareVariant                     2787      // 4 Bits, Bit 6-3
+#define SWA_VisibleChannels                     3051      // uint8_t
+#define SWA_HardwareVariant                     3051      // 4 Bits, Bit 6-3
 #define     SWA_HardwareVariantMask 0x78
 #define     SWA_HardwareVariantShift 3
+#define SWA_TotalPowerSend                      3052      // 1 Bit, Bit 7
+#define     SWA_TotalPowerSendMask 0x80
+#define     SWA_TotalPowerSendShift 7
+#define SWA_TotalCurrentSend                    3052      // 1 Bit, Bit 6
+#define     SWA_TotalCurrentSendMask 0x40
+#define     SWA_TotalCurrentSendShift 6
+#define SWA_TotalPowerSendMinChangePercent      3053      // uint8_t
+#define SWA_TotalPowerSendMinChangeAbsolute     3054      // uint16_t
+#define SWA_TotalPowerSendCyclicBase            3056      // 2 Bits, Bit 7-6
+#define     SWA_TotalPowerSendCyclicBaseMask 0xC0
+#define     SWA_TotalPowerSendCyclicBaseShift 6
+#define SWA_TotalPowerSendCyclicTime            3056      // 14 Bits, Bit 13-0
+#define     SWA_TotalPowerSendCyclicTimeMask 0x3FFF
+#define     SWA_TotalPowerSendCyclicTimeShift 0
+#define SWA_TotalCurrentSendMinChangePercent    3058      // uint8_t
+#define SWA_TotalCurrentSendMinChangeAbsolute   3059      // uint16_t
+#define SWA_TotalCurrentSendCyclicBase          3061      // 2 Bits, Bit 7-6
+#define     SWA_TotalCurrentSendCyclicBaseMask 0xC0
+#define     SWA_TotalCurrentSendCyclicBaseShift 6
+#define SWA_TotalCurrentSendCyclicTime          3061      // 14 Bits, Bit 13-0
+#define     SWA_TotalCurrentSendCyclicTimeMask 0x3FFF
+#define     SWA_TotalCurrentSendCyclicTimeShift 0
+#define SWA_FrontControlInput                   3067      // 1 Bit, Bit 7
+#define     SWA_FrontControlInputMask 0x80
+#define     SWA_FrontControlInputShift 7
+#define SWA_FrontControlOutput                  3067      // 1 Bit, Bit 6
+#define     SWA_FrontControlOutputMask 0x40
+#define     SWA_FrontControlOutputShift 6
 
 // Verfügbare Kanäle
 #define ParamSWA_VisibleChannels                     (knx.paramByte(SWA_VisibleChannels))
 // Hardware-Variante
 #define ParamSWA_HardwareVariant                     ((knx.paramByte(SWA_HardwareVariant) & SWA_HardwareVariantMask) >> SWA_HardwareVariantShift)
+// Gesamtleistung senden
+#define ParamSWA_TotalPowerSend                      ((bool)(knx.paramByte(SWA_TotalPowerSend) & SWA_TotalPowerSendMask))
+// Gesamtstrom senden
+#define ParamSWA_TotalCurrentSend                    ((bool)(knx.paramByte(SWA_TotalCurrentSend) & SWA_TotalCurrentSendMask))
+// Mindeständerung relativ
+#define ParamSWA_TotalPowerSendMinChangePercent      (knx.paramByte(SWA_TotalPowerSendMinChangePercent))
+// Mindeständerung absolut
+#define ParamSWA_TotalPowerSendMinChangeAbsolute     (knx.paramWord(SWA_TotalPowerSendMinChangeAbsolute))
+// Zeitbasis
+#define ParamSWA_TotalPowerSendCyclicBase            ((knx.paramByte(SWA_TotalPowerSendCyclicBase) & SWA_TotalPowerSendCyclicBaseMask) >> SWA_TotalPowerSendCyclicBaseShift)
+// Zeit
+#define ParamSWA_TotalPowerSendCyclicTime            (knx.paramWord(SWA_TotalPowerSendCyclicTime) & SWA_TotalPowerSendCyclicTimeMask)
+// Zeit (in Millisekunden)
+#define ParamSWA_TotalPowerSendCyclicTimeMS          (paramDelay(knx.paramWord(SWA_TotalPowerSendCyclicTime)))
+// Mindeständerung relativ
+#define ParamSWA_TotalCurrentSendMinChangePercent    (knx.paramByte(SWA_TotalCurrentSendMinChangePercent))
+// Mindeständerung absolut
+#define ParamSWA_TotalCurrentSendMinChangeAbsolute   (knx.paramWord(SWA_TotalCurrentSendMinChangeAbsolute))
+// Zeitbasis
+#define ParamSWA_TotalCurrentSendCyclicBase          ((knx.paramByte(SWA_TotalCurrentSendCyclicBase) & SWA_TotalCurrentSendCyclicBaseMask) >> SWA_TotalCurrentSendCyclicBaseShift)
+// Zeit
+#define ParamSWA_TotalCurrentSendCyclicTime          (knx.paramWord(SWA_TotalCurrentSendCyclicTime) & SWA_TotalCurrentSendCyclicTimeMask)
+// Zeit (in Millisekunden)
+#define ParamSWA_TotalCurrentSendCyclicTimeMS        (paramDelay(knx.paramWord(SWA_TotalCurrentSendCyclicTime)))
+// Frontbedienung aktivieren
+#define ParamSWA_FrontControlInput                   ((bool)(knx.paramByte(SWA_FrontControlInput) & SWA_FrontControlInputMask))
+// LED-Ausgabe aktivieren
+#define ParamSWA_FrontControlOutput                  ((bool)(knx.paramByte(SWA_FrontControlOutput) & SWA_FrontControlOutputMask))
 
 #define SWA_KoCentralFunction 570
+#define SWA_KoTotalPower 571
+#define SWA_KoTotalCurrent 572
 
 // Zentralfunktion
 #define KoSWA_CentralFunction                     (knx.getGroupObject(SWA_KoCentralFunction))
+// 
+#define KoSWA_TotalPower                          (knx.getGroupObject(SWA_KoTotalPower))
+// 
+#define KoSWA_TotalCurrent                        (knx.getGroupObject(SWA_KoTotalCurrent))
 
 #define SWA_ChannelCount 1
 
 // Parameter per channel
-#define SWA_ParamBlockOffset 2788
+#define SWA_ParamBlockOffset 3069
 #define SWA_ParamBlockSize 74
 #define SWA_ParamCalcIndex(index) (index + SWA_ParamBlockOffset + _channelIndex * SWA_ParamBlockSize)
 
@@ -2671,10 +3009,10 @@
 #define ParamSWA_ChSceneHNumber                      (knx.paramByte(SWA_ParamCalcIndex(SWA_ChSceneHNumber)))
 
 // deprecated
-#define SWA_KoOffset 571
+#define SWA_KoOffset 580
 
 // Communication objects per channel (multiple occurrence)
-#define SWA_KoBlockOffset 571
+#define SWA_KoBlockOffset 580
 #define SWA_KoBlockSize 9
 
 #define SWA_KoCalcNumber(index) (index + SWA_KoBlockOffset + _channelIndex * SWA_KoBlockSize)
@@ -2715,7 +3053,7 @@
 #define BI_ChannelCount 4
 
 // Parameter per channel
-#define BI_ParamBlockOffset 2862
+#define BI_ParamBlockOffset 3143
 #define BI_ParamBlockSize 4
 #define BI_ParamCalcIndex(index) (index + BI_ParamBlockOffset + _channelIndex * BI_ParamBlockSize)
 
@@ -2757,10 +3095,10 @@
 #define ParamBI_ChannelPeriodicTimeMS               (paramDelay(knx.paramWord(BI_ParamCalcIndex(BI_ChannelPeriodicTime))))
 
 // deprecated
-#define BI_KoOffset 580
+#define BI_KoOffset 590
 
 // Communication objects per channel (multiple occurrence)
-#define BI_KoBlockOffset 580
+#define BI_KoBlockOffset 590
 #define BI_KoBlockSize 1
 
 #define BI_KoCalcNumber(index) (index + BI_KoBlockOffset + _channelIndex * BI_KoBlockSize)
@@ -2772,10 +3110,10 @@
 // 
 #define KoBI_ChannelOutput                       (knx.getGroupObject(BI_KoCalcNumber(BI_KoChannelOutput)))
 
-#define BTN_ReactionTimeMultiClick              2878      // 8 Bits, Bit 7-0
-#define BTN_ReactionTimeLong                    2879      // 8 Bits, Bit 7-0
-#define BTN_ReactionTimeExtraLong               2880      // 8 Bits, Bit 7-0
-#define BTN_VisibleChannels                     2881      // uint8_t
+#define BTN_ReactionTimeMultiClick              3159      // 8 Bits, Bit 7-0
+#define BTN_ReactionTimeLong                    3160      // 8 Bits, Bit 7-0
+#define BTN_ReactionTimeExtraLong               3161      // 8 Bits, Bit 7-0
+#define BTN_VisibleChannels                     3162      // uint8_t
 
 // Mehrfach-Klick
 #define ParamBTN_ReactionTimeMultiClick              (knx.paramByte(BTN_ReactionTimeMultiClick))
@@ -2789,7 +3127,7 @@
 #define BTN_ChannelCount 10
 
 // Parameter per channel
-#define BTN_ParamBlockOffset 2882
+#define BTN_ParamBlockOffset 3163
 #define BTN_ParamBlockSize 53
 #define BTN_ParamCalcIndex(index) (index + BTN_ParamBlockOffset + _channelIndex * BTN_ParamBlockSize)
 
@@ -3257,10 +3595,10 @@
 #define ParamBTN_bStatusThresholdLow                 (knx.paramByte(BTN_ParamCalcIndex(BTN_bStatusThresholdLow)))
 
 // deprecated
-#define BTN_KoOffset 585
+#define BTN_KoOffset 595
 
 // Communication objects per channel (multiple occurrence)
-#define BTN_KoBlockOffset 585
+#define BTN_KoBlockOffset 595
 #define BTN_KoBlockSize 12
 
 #define BTN_KoCalcNumber(index) (index + BTN_KoBlockOffset + _channelIndex * BTN_KoBlockSize)
@@ -3305,198 +3643,198 @@
 // 
 #define KoBTN_Out6                                (knx.getGroupObject(BTN_KoCalcNumber(BTN_KoOut6)))
 
-#define SENS_Error                               3412      // 1 Bit, Bit 7
+#define SENS_Error                               3693      // 1 Bit, Bit 7
 #define     SENS_ErrorMask 0x80
 #define     SENS_ErrorShift 7
-#define SENS_Dewpoint                            3412      // 1 Bit, Bit 6
+#define SENS_Dewpoint                            3693      // 1 Bit, Bit 6
 #define     SENS_DewpointMask 0x40
 #define     SENS_DewpointShift 6
-#define SENS_Comfort                             3412      // 1 Bit, Bit 5
+#define SENS_Comfort                             3693      // 1 Bit, Bit 5
 #define     SENS_ComfortMask 0x20
 #define     SENS_ComfortShift 5
-#define SENS_Airquality                          3412      // 1 Bit, Bit 4
+#define SENS_Airquality                          3693      // 1 Bit, Bit 4
 #define     SENS_AirqualityMask 0x10
 #define     SENS_AirqualityShift 4
-#define SENS_Accuracy                            3412      // 1 Bit, Bit 3
+#define SENS_Accuracy                            3693      // 1 Bit, Bit 3
 #define     SENS_AccuracyMask 0x08
 #define     SENS_AccuracyShift 3
-#define SENS_DeleteData                          3412      // 1 Bit, Bit 2
+#define SENS_DeleteData                          3693      // 1 Bit, Bit 2
 #define     SENS_DeleteDataMask 0x04
 #define     SENS_DeleteDataShift 2
-#define SENS_TempOffset                          3413      // int8_t
-#define SENS_TempCycleBase                       3414      // 2 Bits, Bit 7-6
+#define SENS_TempOffset                          3694      // int8_t
+#define SENS_TempCycleBase                       3695      // 2 Bits, Bit 7-6
 #define     SENS_TempCycleBaseMask 0xC0
 #define     SENS_TempCycleBaseShift 6
-#define SENS_TempCycleTime                       3414      // 14 Bits, Bit 13-0
+#define SENS_TempCycleTime                       3695      // 14 Bits, Bit 13-0
 #define     SENS_TempCycleTimeMask 0x3FFF
 #define     SENS_TempCycleTimeShift 0
-#define SENS_TempDeltaAbs                        3416      // uint16_t
-#define SENS_TempDeltaPercent                    3418      // uint8_t
-#define SENS_TempSmooth                          3419      // uint8_t
-#define SENS_TempExtCount                        3420      // 2 Bits, Bit 1-0
+#define SENS_TempDeltaAbs                        3697      // uint16_t
+#define SENS_TempDeltaPercent                    3699      // uint8_t
+#define SENS_TempSmooth                          3700      // uint8_t
+#define SENS_TempExtCount                        3701      // 2 Bits, Bit 1-0
 #define     SENS_TempExtCountMask 0x03
 #define     SENS_TempExtCountShift 0
-#define SENS_TempExtRead                         3420      // 1 Bit, Bit 2
+#define SENS_TempExtRead                         3701      // 1 Bit, Bit 2
 #define     SENS_TempExtReadMask 0x04
 #define     SENS_TempExtReadShift 2
-#define SENS_TempIntPercent                      3421      // uint8_t
-#define SENS_TempExt1Percent                     3422      // uint8_t
-#define SENS_TempExt2Percent                     3423      // uint8_t
-#define SENS_HumOffset                           3424      // int8_t
-#define SENS_HumCycleBase                        3425      // 2 Bits, Bit 7-6
+#define SENS_TempIntPercent                      3702      // uint8_t
+#define SENS_TempExt1Percent                     3703      // uint8_t
+#define SENS_TempExt2Percent                     3704      // uint8_t
+#define SENS_HumOffset                           3705      // int8_t
+#define SENS_HumCycleBase                        3706      // 2 Bits, Bit 7-6
 #define     SENS_HumCycleBaseMask 0xC0
 #define     SENS_HumCycleBaseShift 6
-#define SENS_HumCycleTime                        3425      // 14 Bits, Bit 13-0
+#define SENS_HumCycleTime                        3706      // 14 Bits, Bit 13-0
 #define     SENS_HumCycleTimeMask 0x3FFF
 #define     SENS_HumCycleTimeShift 0
-#define SENS_HumDeltaAbs                         3427      // uint16_t
-#define SENS_HumDeltaPercent                     3429      // uint8_t
-#define SENS_HumSmooth                           3430      // uint8_t
-#define SENS_HumExtCount                         3431      // 2 Bits, Bit 1-0
+#define SENS_HumDeltaAbs                         3708      // uint16_t
+#define SENS_HumDeltaPercent                     3710      // uint8_t
+#define SENS_HumSmooth                           3711      // uint8_t
+#define SENS_HumExtCount                         3712      // 2 Bits, Bit 1-0
 #define     SENS_HumExtCountMask 0x03
 #define     SENS_HumExtCountShift 0
-#define SENS_HumExtRead                          3431      // 1 Bit, Bit 2
+#define SENS_HumExtRead                          3712      // 1 Bit, Bit 2
 #define     SENS_HumExtReadMask 0x04
 #define     SENS_HumExtReadShift 2
-#define SENS_HumIntPercent                       3432      // uint8_t
-#define SENS_HumExt1Percent                      3433      // uint8_t
-#define SENS_HumExt2Percent                      3434      // uint8_t
-#define SENS_PreOffset                           3435      // int8_t
-#define SENS_PreCycleBase                        3436      // 2 Bits, Bit 7-6
+#define SENS_HumIntPercent                       3713      // uint8_t
+#define SENS_HumExt1Percent                      3714      // uint8_t
+#define SENS_HumExt2Percent                      3715      // uint8_t
+#define SENS_PreOffset                           3716      // int8_t
+#define SENS_PreCycleBase                        3717      // 2 Bits, Bit 7-6
 #define     SENS_PreCycleBaseMask 0xC0
 #define     SENS_PreCycleBaseShift 6
-#define SENS_PreCycleTime                        3436      // 14 Bits, Bit 13-0
+#define SENS_PreCycleTime                        3717      // 14 Bits, Bit 13-0
 #define     SENS_PreCycleTimeMask 0x3FFF
 #define     SENS_PreCycleTimeShift 0
-#define SENS_PreDeltaAbs                         3438      // uint16_t
-#define SENS_PreDeltaPercent                     3440      // uint8_t
-#define SENS_PreSmooth                           3441      // uint8_t
-#define SENS_PreExtCount                         3442      // 2 Bits, Bit 1-0
+#define SENS_PreDeltaAbs                         3719      // uint16_t
+#define SENS_PreDeltaPercent                     3721      // uint8_t
+#define SENS_PreSmooth                           3722      // uint8_t
+#define SENS_PreExtCount                         3723      // 2 Bits, Bit 1-0
 #define     SENS_PreExtCountMask 0x03
 #define     SENS_PreExtCountShift 0
-#define SENS_PreExtRead                          3442      // 1 Bit, Bit 2
+#define SENS_PreExtRead                          3723      // 1 Bit, Bit 2
 #define     SENS_PreExtReadMask 0x04
 #define     SENS_PreExtReadShift 2
-#define SENS_PreIntPercent                       3443      // uint8_t
-#define SENS_PreExt1Percent                      3444      // uint8_t
-#define SENS_PreExt2Percent                      3445      // uint8_t
-#define SENS_VocOffset                           3446      // int8_t
-#define SENS_VocCycleBase                        3447      // 2 Bits, Bit 7-6
+#define SENS_PreIntPercent                       3724      // uint8_t
+#define SENS_PreExt1Percent                      3725      // uint8_t
+#define SENS_PreExt2Percent                      3726      // uint8_t
+#define SENS_VocOffset                           3727      // int8_t
+#define SENS_VocCycleBase                        3728      // 2 Bits, Bit 7-6
 #define     SENS_VocCycleBaseMask 0xC0
 #define     SENS_VocCycleBaseShift 6
-#define SENS_VocCycleTime                        3447      // 14 Bits, Bit 13-0
+#define SENS_VocCycleTime                        3728      // 14 Bits, Bit 13-0
 #define     SENS_VocCycleTimeMask 0x3FFF
 #define     SENS_VocCycleTimeShift 0
-#define SENS_VocDeltaAbs                         3449      // uint16_t
-#define SENS_VocDeltaPercent                     3451      // uint8_t
-#define SENS_VocSmooth                           3452      // uint8_t
-#define SENS_VocExtCount                         3453      // 2 Bits, Bit 1-0
+#define SENS_VocDeltaAbs                         3730      // uint16_t
+#define SENS_VocDeltaPercent                     3732      // uint8_t
+#define SENS_VocSmooth                           3733      // uint8_t
+#define SENS_VocExtCount                         3734      // 2 Bits, Bit 1-0
 #define     SENS_VocExtCountMask 0x03
 #define     SENS_VocExtCountShift 0
-#define SENS_VocExtRead                          3453      // 1 Bit, Bit 2
+#define SENS_VocExtRead                          3734      // 1 Bit, Bit 2
 #define     SENS_VocExtReadMask 0x04
 #define     SENS_VocExtReadShift 2
-#define SENS_VocIntPercent                       3454      // uint8_t
-#define SENS_VocExt1Percent                      3455      // uint8_t
-#define SENS_VocExt2Percent                      3456      // uint8_t
-#define SENS_Co2Offset                           3457      // int8_t
-#define SENS_Co2CycleBase                        3458      // 2 Bits, Bit 7-6
+#define SENS_VocIntPercent                       3735      // uint8_t
+#define SENS_VocExt1Percent                      3736      // uint8_t
+#define SENS_VocExt2Percent                      3737      // uint8_t
+#define SENS_Co2Offset                           3738      // int8_t
+#define SENS_Co2CycleBase                        3739      // 2 Bits, Bit 7-6
 #define     SENS_Co2CycleBaseMask 0xC0
 #define     SENS_Co2CycleBaseShift 6
-#define SENS_Co2CycleTime                        3458      // 14 Bits, Bit 13-0
+#define SENS_Co2CycleTime                        3739      // 14 Bits, Bit 13-0
 #define     SENS_Co2CycleTimeMask 0x3FFF
 #define     SENS_Co2CycleTimeShift 0
-#define SENS_Co2DeltaAbs                         3460      // uint16_t
-#define SENS_Co2DeltaPercent                     3462      // uint8_t
-#define SENS_Co2Smooth                           3463      // uint8_t
-#define SENS_Co2ExtCount                         3464      // 2 Bits, Bit 1-0
+#define SENS_Co2DeltaAbs                         3741      // uint16_t
+#define SENS_Co2DeltaPercent                     3743      // uint8_t
+#define SENS_Co2Smooth                           3744      // uint8_t
+#define SENS_Co2ExtCount                         3745      // 2 Bits, Bit 1-0
 #define     SENS_Co2ExtCountMask 0x03
 #define     SENS_Co2ExtCountShift 0
-#define SENS_Co2ExtRead                          3464      // 1 Bit, Bit 2
+#define SENS_Co2ExtRead                          3745      // 1 Bit, Bit 2
 #define     SENS_Co2ExtReadMask 0x04
 #define     SENS_Co2ExtReadShift 2
-#define SENS_Co2IntPercent                       3465      // uint8_t
-#define SENS_Co2Ext1Percent                      3466      // uint8_t
-#define SENS_Co2Ext2Percent                      3467      // uint8_t
-#define SENS_DewOffset                           3469      // int8_t
-#define SENS_DewCycleBase                        3470      // 2 Bits, Bit 7-6
+#define SENS_Co2IntPercent                       3746      // uint8_t
+#define SENS_Co2Ext1Percent                      3747      // uint8_t
+#define SENS_Co2Ext2Percent                      3748      // uint8_t
+#define SENS_DewOffset                           3750      // int8_t
+#define SENS_DewCycleBase                        3751      // 2 Bits, Bit 7-6
 #define     SENS_DewCycleBaseMask 0xC0
 #define     SENS_DewCycleBaseShift 6
-#define SENS_DewCycleTime                        3470      // 14 Bits, Bit 13-0
+#define SENS_DewCycleTime                        3751      // 14 Bits, Bit 13-0
 #define     SENS_DewCycleTimeMask 0x3FFF
 #define     SENS_DewCycleTimeShift 0
-#define SENS_DewDeltaAbs                         3472      // uint16_t
-#define SENS_DewDeltaPercent                     3474      // uint8_t
-#define SENS_DewSmooth                           3475      // uint8_t
-#define SENS_LuxOffset                           3476      // int8_t
-#define SENS_LuxCycleBase                        3477      // 2 Bits, Bit 7-6
+#define SENS_DewDeltaAbs                         3753      // uint16_t
+#define SENS_DewDeltaPercent                     3755      // uint8_t
+#define SENS_DewSmooth                           3756      // uint8_t
+#define SENS_LuxOffset                           3757      // int8_t
+#define SENS_LuxCycleBase                        3758      // 2 Bits, Bit 7-6
 #define     SENS_LuxCycleBaseMask 0xC0
 #define     SENS_LuxCycleBaseShift 6
-#define SENS_LuxCycleTime                        3477      // 14 Bits, Bit 13-0
+#define SENS_LuxCycleTime                        3758      // 14 Bits, Bit 13-0
 #define     SENS_LuxCycleTimeMask 0x3FFF
 #define     SENS_LuxCycleTimeShift 0
-#define SENS_LuxDeltaAbs                         3479      // uint16_t
-#define SENS_LuxDeltaPercent                     3481      // uint8_t
-#define SENS_LuxSmooth                           3482      // uint8_t
-#define SENS_LuxExtCount                         3483      // 2 Bits, Bit 1-0
+#define SENS_LuxDeltaAbs                         3760      // uint16_t
+#define SENS_LuxDeltaPercent                     3762      // uint8_t
+#define SENS_LuxSmooth                           3763      // uint8_t
+#define SENS_LuxExtCount                         3764      // 2 Bits, Bit 1-0
 #define     SENS_LuxExtCountMask 0x03
 #define     SENS_LuxExtCountShift 0
-#define SENS_LuxExtRead                          3483      // 1 Bit, Bit 2
+#define SENS_LuxExtRead                          3764      // 1 Bit, Bit 2
 #define     SENS_LuxExtReadMask 0x04
 #define     SENS_LuxExtReadShift 2
-#define SENS_LuxIntPercent                       3484      // uint8_t
-#define SENS_LuxExt1Percent                      3485      // uint8_t
-#define SENS_LuxExt2Percent                      3486      // uint8_t
-#define SENS_TofOffset                           3487      // int8_t
-#define SENS_TofCycleBase                        3488      // 2 Bits, Bit 7-6
+#define SENS_LuxIntPercent                       3765      // uint8_t
+#define SENS_LuxExt1Percent                      3766      // uint8_t
+#define SENS_LuxExt2Percent                      3767      // uint8_t
+#define SENS_TofOffset                           3768      // int8_t
+#define SENS_TofCycleBase                        3769      // 2 Bits, Bit 7-6
 #define     SENS_TofCycleBaseMask 0xC0
 #define     SENS_TofCycleBaseShift 6
-#define SENS_TofCycleTime                        3488      // 14 Bits, Bit 13-0
+#define SENS_TofCycleTime                        3769      // 14 Bits, Bit 13-0
 #define     SENS_TofCycleTimeMask 0x3FFF
 #define     SENS_TofCycleTimeShift 0
-#define SENS_TofDeltaAbs                         3490      // uint16_t
-#define SENS_TofDeltaPercent                     3492      // uint8_t
-#define SENS_TofSmooth                           3493      // uint8_t
-#define SENS_TofExtCount                         3494      // 2 Bits, Bit 1-0
+#define SENS_TofDeltaAbs                         3771      // uint16_t
+#define SENS_TofDeltaPercent                     3773      // uint8_t
+#define SENS_TofSmooth                           3774      // uint8_t
+#define SENS_TofExtCount                         3775      // 2 Bits, Bit 1-0
 #define     SENS_TofExtCountMask 0x03
 #define     SENS_TofExtCountShift 0
-#define SENS_TofExtRead                          3494      // 1 Bit, Bit 2
+#define SENS_TofExtRead                          3775      // 1 Bit, Bit 2
 #define     SENS_TofExtReadMask 0x04
 #define     SENS_TofExtReadShift 2
-#define SENS_TofIntPercent                       3495      // uint8_t
-#define SENS_TofExt1Percent                      3496      // uint8_t
-#define SENS_TofExt2Percent                      3497      // uint8_t
-#define SENS_TempSensor                          3498      // 4 Bits, Bit 7-4
+#define SENS_TofIntPercent                       3776      // uint8_t
+#define SENS_TofExt1Percent                      3777      // uint8_t
+#define SENS_TofExt2Percent                      3778      // uint8_t
+#define SENS_TempSensor                          3779      // 4 Bits, Bit 7-4
 #define     SENS_TempSensorMask 0xF0
 #define     SENS_TempSensorShift 4
-#define SENS_HumSensor                           3498      // 4 Bits, Bit 3-0
+#define SENS_HumSensor                           3779      // 4 Bits, Bit 3-0
 #define     SENS_HumSensorMask 0x0F
 #define     SENS_HumSensorShift 0
-#define SENS_PreSensor                           3499      // 4 Bits, Bit 7-4
+#define SENS_PreSensor                           3780      // 4 Bits, Bit 7-4
 #define     SENS_PreSensorMask 0xF0
 #define     SENS_PreSensorShift 4
-#define SENS_VocSensor                           3499      // 4 Bits, Bit 3-0
+#define SENS_VocSensor                           3780      // 4 Bits, Bit 3-0
 #define     SENS_VocSensorMask 0x0F
 #define     SENS_VocSensorShift 0
-#define SENS_Co2Sensor                           3500      // 4 Bits, Bit 7-4
+#define SENS_Co2Sensor                           3781      // 4 Bits, Bit 7-4
 #define     SENS_Co2SensorMask 0xF0
 #define     SENS_Co2SensorShift 4
-#define SENS_LuxSensor                           3500      // 4 Bits, Bit 3-0
+#define SENS_LuxSensor                           3781      // 4 Bits, Bit 3-0
 #define     SENS_LuxSensorMask 0x0F
 #define     SENS_LuxSensorShift 0
-#define SENS_TofSensor                           3501      // 4 Bits, Bit 7-4
+#define SENS_TofSensor                           3782      // 4 Bits, Bit 7-4
 #define     SENS_TofSensorMask 0xF0
 #define     SENS_TofSensorShift 4
-#define SENS_SCD41MeasureIntervalDelayBase       3502      // 2 Bits, Bit 7-6
+#define SENS_SCD41MeasureIntervalDelayBase       3783      // 2 Bits, Bit 7-6
 #define     SENS_SCD41MeasureIntervalDelayBaseMask 0xC0
 #define     SENS_SCD41MeasureIntervalDelayBaseShift 6
-#define SENS_SCD41MeasureIntervalDelayTime       3502      // 14 Bits, Bit 13-0
+#define SENS_SCD41MeasureIntervalDelayTime       3783      // 14 Bits, Bit 13-0
 #define     SENS_SCD41MeasureIntervalDelayTimeMask 0x3FFF
 #define     SENS_SCD41MeasureIntervalDelayTimeShift 0
-#define SENS_PT1000NumWires                      3504      // 2 Bits, Bit 7-6
+#define SENS_PT1000NumWires                      3785      // 2 Bits, Bit 7-6
 #define     SENS_PT1000NumWiresMask 0xC0
 #define     SENS_PT1000NumWiresShift 6
-#define SENS_PT100PT1000                         3504      // 1 Bit, Bit 5
+#define SENS_PT100PT1000                         3785      // 1 Bit, Bit 5
 #define     SENS_PT100PT1000Mask 0x20
 #define     SENS_PT100PT1000Shift 5
 
@@ -3719,34 +4057,34 @@
 // Art des Analogsensors
 #define ParamSENS_PT100PT1000                         ((bool)(knx.paramByte(SENS_PT100PT1000) & SENS_PT100PT1000Mask))
 
-#define SENS_KoRequestValues 705
-#define SENS_KoError 706
-#define SENS_KoTemp 707
-#define SENS_KoExt1Temp 708
-#define SENS_KoExt2Temp 709
-#define SENS_KoHum 710
-#define SENS_KoExt1Hum 711
-#define SENS_KoExt2Hum 712
-#define SENS_KoPre 713
-#define SENS_KoExt1Pre 714
-#define SENS_KoExt2Pre 715
-#define SENS_KoVoc 716
-#define SENS_KoExt1Voc 717
-#define SENS_KoExt2Voc 718
-#define SENS_KoCo2 719
-#define SENS_KoExt1Co2 721
-#define SENS_KoExt2Co2 722
-#define SENS_KoLux 723
-#define SENS_KoExt1Lux 724
-#define SENS_KoExt2Lux 725
-#define SENS_KoTof 726
-#define SENS_KoExt1Tof 727
-#define SENS_KoExt2Tof 728
-#define SENS_KoCo2b 720
-#define SENS_KoDewpoint 747
-#define SENS_KoComfort 748
-#define SENS_KoAirquality 749
-#define SENS_KoSensorAccuracy 750
+#define SENS_KoRequestValues 715
+#define SENS_KoError 716
+#define SENS_KoTemp 717
+#define SENS_KoExt1Temp 718
+#define SENS_KoExt2Temp 719
+#define SENS_KoHum 720
+#define SENS_KoExt1Hum 721
+#define SENS_KoExt2Hum 722
+#define SENS_KoPre 723
+#define SENS_KoExt1Pre 724
+#define SENS_KoExt2Pre 725
+#define SENS_KoVoc 726
+#define SENS_KoExt1Voc 727
+#define SENS_KoExt2Voc 728
+#define SENS_KoCo2 729
+#define SENS_KoExt1Co2 731
+#define SENS_KoExt2Co2 732
+#define SENS_KoLux 733
+#define SENS_KoExt1Lux 734
+#define SENS_KoExt2Lux 735
+#define SENS_KoTof 736
+#define SENS_KoExt1Tof 737
+#define SENS_KoExt2Tof 738
+#define SENS_KoCo2b 730
+#define SENS_KoDewpoint 757
+#define SENS_KoComfort 758
+#define SENS_KoAirquality 759
+#define SENS_KoSensorAccuracy 760
 
 // Sensorwerte anfordern
 #define KoSENS_RequestValues                       (knx.getGroupObject(SENS_KoRequestValues))
@@ -3805,254 +4143,254 @@
 // Kalibrierungfortschritt
 #define KoSENS_SensorAccuracy                      (knx.getGroupObject(SENS_KoSensorAccuracy))
 
-#define LOG_BuzzerInstalled                     3505      // 1 Bit, Bit 7
+#define LOG_BuzzerInstalled                     3786      // 1 Bit, Bit 7
 #define     LOG_BuzzerInstalledMask 0x80
 #define     LOG_BuzzerInstalledShift 7
-#define LOG_LedInstalled                        3505      // 1 Bit, Bit 6
+#define LOG_LedInstalled                        3786      // 1 Bit, Bit 6
 #define     LOG_LedInstalledMask 0x40
 #define     LOG_LedInstalledShift 6
-#define LOG_VacationKo                          3505      // 1 Bit, Bit 5
+#define LOG_VacationKo                          3786      // 1 Bit, Bit 5
 #define     LOG_VacationKoMask 0x20
 #define     LOG_VacationKoShift 5
-#define LOG_HolidayKo                           3505      // 1 Bit, Bit 4
+#define LOG_HolidayKo                           3786      // 1 Bit, Bit 4
 #define     LOG_HolidayKoMask 0x10
 #define     LOG_HolidayKoShift 4
-#define LOG_VacationRead                        3505      // 1 Bit, Bit 3
+#define LOG_VacationRead                        3786      // 1 Bit, Bit 3
 #define     LOG_VacationReadMask 0x08
 #define     LOG_VacationReadShift 3
-#define LOG_HolidaySend                         3505      // 1 Bit, Bit 2
+#define LOG_HolidaySend                         3786      // 1 Bit, Bit 2
 #define     LOG_HolidaySendMask 0x04
 #define     LOG_HolidaySendShift 2
-#define LOG_Neujahr                             3506      // 1 Bit, Bit 7
+#define LOG_Neujahr                             3787      // 1 Bit, Bit 7
 #define     LOG_NeujahrMask 0x80
 #define     LOG_NeujahrShift 7
-#define LOG_DreiKoenige                         3506      // 1 Bit, Bit 6
+#define LOG_DreiKoenige                         3787      // 1 Bit, Bit 6
 #define     LOG_DreiKoenigeMask 0x40
 #define     LOG_DreiKoenigeShift 6
-#define LOG_Weiberfastnacht                     3506      // 1 Bit, Bit 5
+#define LOG_Weiberfastnacht                     3787      // 1 Bit, Bit 5
 #define     LOG_WeiberfastnachtMask 0x20
 #define     LOG_WeiberfastnachtShift 5
-#define LOG_Rosenmontag                         3506      // 1 Bit, Bit 4
+#define LOG_Rosenmontag                         3787      // 1 Bit, Bit 4
 #define     LOG_RosenmontagMask 0x10
 #define     LOG_RosenmontagShift 4
-#define LOG_Fastnachtsdienstag                  3506      // 1 Bit, Bit 3
+#define LOG_Fastnachtsdienstag                  3787      // 1 Bit, Bit 3
 #define     LOG_FastnachtsdienstagMask 0x08
 #define     LOG_FastnachtsdienstagShift 3
-#define LOG_Aschermittwoch                      3506      // 1 Bit, Bit 2
+#define LOG_Aschermittwoch                      3787      // 1 Bit, Bit 2
 #define     LOG_AschermittwochMask 0x04
 #define     LOG_AschermittwochShift 2
-#define LOG_Frauentag                           3506      // 1 Bit, Bit 1
+#define LOG_Frauentag                           3787      // 1 Bit, Bit 1
 #define     LOG_FrauentagMask 0x02
 #define     LOG_FrauentagShift 1
-#define LOG_Gruendonnerstag                     3506      // 1 Bit, Bit 0
+#define LOG_Gruendonnerstag                     3787      // 1 Bit, Bit 0
 #define     LOG_GruendonnerstagMask 0x01
 #define     LOG_GruendonnerstagShift 0
-#define LOG_Karfreitag                          3507      // 1 Bit, Bit 7
+#define LOG_Karfreitag                          3788      // 1 Bit, Bit 7
 #define     LOG_KarfreitagMask 0x80
 #define     LOG_KarfreitagShift 7
-#define LOG_Ostersonntag                        3507      // 1 Bit, Bit 6
+#define LOG_Ostersonntag                        3788      // 1 Bit, Bit 6
 #define     LOG_OstersonntagMask 0x40
 #define     LOG_OstersonntagShift 6
-#define LOG_Ostermontag                         3507      // 1 Bit, Bit 5
+#define LOG_Ostermontag                         3788      // 1 Bit, Bit 5
 #define     LOG_OstermontagMask 0x20
 #define     LOG_OstermontagShift 5
-#define LOG_TagDerArbeit                        3507      // 1 Bit, Bit 4
+#define LOG_TagDerArbeit                        3788      // 1 Bit, Bit 4
 #define     LOG_TagDerArbeitMask 0x10
 #define     LOG_TagDerArbeitShift 4
-#define LOG_Himmelfahrt                         3507      // 1 Bit, Bit 3
+#define LOG_Himmelfahrt                         3788      // 1 Bit, Bit 3
 #define     LOG_HimmelfahrtMask 0x08
 #define     LOG_HimmelfahrtShift 3
-#define LOG_Pfingstsonntag                      3507      // 1 Bit, Bit 2
+#define LOG_Pfingstsonntag                      3788      // 1 Bit, Bit 2
 #define     LOG_PfingstsonntagMask 0x04
 #define     LOG_PfingstsonntagShift 2
-#define LOG_Pfingstmontag                       3507      // 1 Bit, Bit 1
+#define LOG_Pfingstmontag                       3788      // 1 Bit, Bit 1
 #define     LOG_PfingstmontagMask 0x02
 #define     LOG_PfingstmontagShift 1
-#define LOG_Fronleichnam                        3507      // 1 Bit, Bit 0
+#define LOG_Fronleichnam                        3788      // 1 Bit, Bit 0
 #define     LOG_FronleichnamMask 0x01
 #define     LOG_FronleichnamShift 0
-#define LOG_Friedensfest                        3508      // 1 Bit, Bit 7
+#define LOG_Friedensfest                        3789      // 1 Bit, Bit 7
 #define     LOG_FriedensfestMask 0x80
 #define     LOG_FriedensfestShift 7
-#define LOG_MariaHimmelfahrt                    3508      // 1 Bit, Bit 6
+#define LOG_MariaHimmelfahrt                    3789      // 1 Bit, Bit 6
 #define     LOG_MariaHimmelfahrtMask 0x40
 #define     LOG_MariaHimmelfahrtShift 6
-#define LOG_DeutscheEinheit                     3508      // 1 Bit, Bit 5
+#define LOG_DeutscheEinheit                     3789      // 1 Bit, Bit 5
 #define     LOG_DeutscheEinheitMask 0x20
 #define     LOG_DeutscheEinheitShift 5
-#define LOG_Reformationstag                     3508      // 1 Bit, Bit 4
+#define LOG_Reformationstag                     3789      // 1 Bit, Bit 4
 #define     LOG_ReformationstagMask 0x10
 #define     LOG_ReformationstagShift 4
-#define LOG_Allerheiligen                       3508      // 1 Bit, Bit 3
+#define LOG_Allerheiligen                       3789      // 1 Bit, Bit 3
 #define     LOG_AllerheiligenMask 0x08
 #define     LOG_AllerheiligenShift 3
-#define LOG_BussBettag                          3508      // 1 Bit, Bit 2
+#define LOG_BussBettag                          3789      // 1 Bit, Bit 2
 #define     LOG_BussBettagMask 0x04
 #define     LOG_BussBettagShift 2
-#define LOG_Advent1                             3508      // 1 Bit, Bit 1
+#define LOG_Advent1                             3789      // 1 Bit, Bit 1
 #define     LOG_Advent1Mask 0x02
 #define     LOG_Advent1Shift 1
-#define LOG_Advent2                             3508      // 1 Bit, Bit 0
+#define LOG_Advent2                             3789      // 1 Bit, Bit 0
 #define     LOG_Advent2Mask 0x01
 #define     LOG_Advent2Shift 0
-#define LOG_Advent3                             3509      // 1 Bit, Bit 7
+#define LOG_Advent3                             3790      // 1 Bit, Bit 7
 #define     LOG_Advent3Mask 0x80
 #define     LOG_Advent3Shift 7
-#define LOG_Advent4                             3509      // 1 Bit, Bit 6
+#define LOG_Advent4                             3790      // 1 Bit, Bit 6
 #define     LOG_Advent4Mask 0x40
 #define     LOG_Advent4Shift 6
-#define LOG_Heiligabend                         3509      // 1 Bit, Bit 5
+#define LOG_Heiligabend                         3790      // 1 Bit, Bit 5
 #define     LOG_HeiligabendMask 0x20
 #define     LOG_HeiligabendShift 5
-#define LOG_Weihnachtstag1                      3509      // 1 Bit, Bit 4
+#define LOG_Weihnachtstag1                      3790      // 1 Bit, Bit 4
 #define     LOG_Weihnachtstag1Mask 0x10
 #define     LOG_Weihnachtstag1Shift 4
-#define LOG_Weihnachtstag2                      3509      // 1 Bit, Bit 3
+#define LOG_Weihnachtstag2                      3790      // 1 Bit, Bit 3
 #define     LOG_Weihnachtstag2Mask 0x08
 #define     LOG_Weihnachtstag2Shift 3
-#define LOG_Silvester                           3509      // 1 Bit, Bit 2
+#define LOG_Silvester                           3790      // 1 Bit, Bit 2
 #define     LOG_SilvesterMask 0x04
 #define     LOG_SilvesterShift 2
-#define LOG_Nationalfeiertag                    3509      // 1 Bit, Bit 1
+#define LOG_Nationalfeiertag                    3790      // 1 Bit, Bit 1
 #define     LOG_NationalfeiertagMask 0x02
 #define     LOG_NationalfeiertagShift 1
-#define LOG_MariaEmpfaengnis                    3509      // 1 Bit, Bit 0
+#define LOG_MariaEmpfaengnis                    3790      // 1 Bit, Bit 0
 #define     LOG_MariaEmpfaengnisMask 0x01
 #define     LOG_MariaEmpfaengnisShift 0
-#define LOG_NationalfeiertagSchweiz             3510      // 1 Bit, Bit 7
+#define LOG_NationalfeiertagSchweiz             3791      // 1 Bit, Bit 7
 #define     LOG_NationalfeiertagSchweizMask 0x80
 #define     LOG_NationalfeiertagSchweizShift 7
-#define LOG_Totensonntag                        3510      // 1 Bit, Bit 6
+#define LOG_Totensonntag                        3791      // 1 Bit, Bit 6
 #define     LOG_TotensonntagMask 0x40
 #define     LOG_TotensonntagShift 6
-#define LOG_Weltkindertag                       3510      // 1 Bit, Bit 5
+#define LOG_Weltkindertag                       3791      // 1 Bit, Bit 5
 #define     LOG_WeltkindertagMask 0x20
 #define     LOG_WeltkindertagShift 5
-#define LOG_BuzzerSilent                        3511      // uint16_t
-#define LOG_BuzzerNormal                        3513      // uint16_t
-#define LOG_BuzzerLoud                          3515      // uint16_t
-#define LOG_VisibleChannels                     3517      // uint8_t
-#define LOG_LedMapping                          3518      // 3 Bits, Bit 7-5
+#define LOG_BuzzerSilent                        3792      // uint16_t
+#define LOG_BuzzerNormal                        3794      // uint16_t
+#define LOG_BuzzerLoud                          3796      // uint16_t
+#define LOG_VisibleChannels                     3798      // uint8_t
+#define LOG_LedMapping                          3799      // 3 Bits, Bit 7-5
 #define     LOG_LedMappingMask 0xE0
 #define     LOG_LedMappingShift 5
-#define LOG_UserFormula1                        3519      // char*, 99 Byte
-#define LOG_UserFormula1Active                  3618      // 1 Bit, Bit 7
+#define LOG_UserFormula1                        3800      // char*, 99 Byte
+#define LOG_UserFormula1Active                  3899      // 1 Bit, Bit 7
 #define     LOG_UserFormula1ActiveMask 0x80
 #define     LOG_UserFormula1ActiveShift 7
-#define LOG_UserFormula2                        3619      // char*, 99 Byte
-#define LOG_UserFormula2Active                  3718      // 1 Bit, Bit 7
+#define LOG_UserFormula2                        3900      // char*, 99 Byte
+#define LOG_UserFormula2Active                  3999      // 1 Bit, Bit 7
 #define     LOG_UserFormula2ActiveMask 0x80
 #define     LOG_UserFormula2ActiveShift 7
-#define LOG_UserFormula3                        3719      // char*, 99 Byte
-#define LOG_UserFormula3Active                  3818      // 1 Bit, Bit 7
+#define LOG_UserFormula3                        4000      // char*, 99 Byte
+#define LOG_UserFormula3Active                  4099      // 1 Bit, Bit 7
 #define     LOG_UserFormula3ActiveMask 0x80
 #define     LOG_UserFormula3ActiveShift 7
-#define LOG_UserFormula4                        3819      // char*, 99 Byte
-#define LOG_UserFormula4Active                  3918      // 1 Bit, Bit 7
+#define LOG_UserFormula4                        4100      // char*, 99 Byte
+#define LOG_UserFormula4Active                  4199      // 1 Bit, Bit 7
 #define     LOG_UserFormula4ActiveMask 0x80
 #define     LOG_UserFormula4ActiveShift 7
-#define LOG_UserFormula5                        3919      // char*, 99 Byte
-#define LOG_UserFormula5Active                  4018      // 1 Bit, Bit 7
+#define LOG_UserFormula5                        4200      // char*, 99 Byte
+#define LOG_UserFormula5Active                  4299      // 1 Bit, Bit 7
 #define     LOG_UserFormula5ActiveMask 0x80
 #define     LOG_UserFormula5ActiveShift 7
-#define LOG_UserFormula6                        4019      // char*, 99 Byte
-#define LOG_UserFormula6Active                  4118      // 1 Bit, Bit 7
+#define LOG_UserFormula6                        4300      // char*, 99 Byte
+#define LOG_UserFormula6Active                  4399      // 1 Bit, Bit 7
 #define     LOG_UserFormula6ActiveMask 0x80
 #define     LOG_UserFormula6ActiveShift 7
-#define LOG_UserFormula7                        4119      // char*, 99 Byte
-#define LOG_UserFormula7Active                  4218      // 1 Bit, Bit 7
+#define LOG_UserFormula7                        4400      // char*, 99 Byte
+#define LOG_UserFormula7Active                  4499      // 1 Bit, Bit 7
 #define     LOG_UserFormula7ActiveMask 0x80
 #define     LOG_UserFormula7ActiveShift 7
-#define LOG_UserFormula8                        4219      // char*, 99 Byte
-#define LOG_UserFormula8Active                  4318      // 1 Bit, Bit 7
+#define LOG_UserFormula8                        4500      // char*, 99 Byte
+#define LOG_UserFormula8Active                  4599      // 1 Bit, Bit 7
 #define     LOG_UserFormula8ActiveMask 0x80
 #define     LOG_UserFormula8ActiveShift 7
-#define LOG_UserFormula9                        4319      // char*, 99 Byte
-#define LOG_UserFormula9Active                  4418      // 1 Bit, Bit 7
+#define LOG_UserFormula9                        4600      // char*, 99 Byte
+#define LOG_UserFormula9Active                  4699      // 1 Bit, Bit 7
 #define     LOG_UserFormula9ActiveMask 0x80
 #define     LOG_UserFormula9ActiveShift 7
-#define LOG_UserFormula10                       4419      // char*, 99 Byte
-#define LOG_UserFormula10Active                 4518      // 1 Bit, Bit 7
+#define LOG_UserFormula10                       4700      // char*, 99 Byte
+#define LOG_UserFormula10Active                 4799      // 1 Bit, Bit 7
 #define     LOG_UserFormula10ActiveMask 0x80
 #define     LOG_UserFormula10ActiveShift 7
-#define LOG_UserFormula11                       4519      // char*, 99 Byte
-#define LOG_UserFormula11Active                 4618      // 1 Bit, Bit 7
+#define LOG_UserFormula11                       4800      // char*, 99 Byte
+#define LOG_UserFormula11Active                 4899      // 1 Bit, Bit 7
 #define     LOG_UserFormula11ActiveMask 0x80
 #define     LOG_UserFormula11ActiveShift 7
-#define LOG_UserFormula12                       4619      // char*, 99 Byte
-#define LOG_UserFormula12Active                 4718      // 1 Bit, Bit 7
+#define LOG_UserFormula12                       4900      // char*, 99 Byte
+#define LOG_UserFormula12Active                 4999      // 1 Bit, Bit 7
 #define     LOG_UserFormula12ActiveMask 0x80
 #define     LOG_UserFormula12ActiveShift 7
-#define LOG_UserFormula13                       4719      // char*, 99 Byte
-#define LOG_UserFormula13Active                 4818      // 1 Bit, Bit 7
+#define LOG_UserFormula13                       5000      // char*, 99 Byte
+#define LOG_UserFormula13Active                 5099      // 1 Bit, Bit 7
 #define     LOG_UserFormula13ActiveMask 0x80
 #define     LOG_UserFormula13ActiveShift 7
-#define LOG_UserFormula14                       4819      // char*, 99 Byte
-#define LOG_UserFormula14Active                 4918      // 1 Bit, Bit 7
+#define LOG_UserFormula14                       5100      // char*, 99 Byte
+#define LOG_UserFormula14Active                 5199      // 1 Bit, Bit 7
 #define     LOG_UserFormula14ActiveMask 0x80
 #define     LOG_UserFormula14ActiveShift 7
-#define LOG_UserFormula15                       4919      // char*, 99 Byte
-#define LOG_UserFormula15Active                 5018      // 1 Bit, Bit 7
+#define LOG_UserFormula15                       5200      // char*, 99 Byte
+#define LOG_UserFormula15Active                 5299      // 1 Bit, Bit 7
 #define     LOG_UserFormula15ActiveMask 0x80
 #define     LOG_UserFormula15ActiveShift 7
-#define LOG_UserFormula16                       5019      // char*, 99 Byte
-#define LOG_UserFormula16Active                 5118      // 1 Bit, Bit 7
+#define LOG_UserFormula16                       5300      // char*, 99 Byte
+#define LOG_UserFormula16Active                 5399      // 1 Bit, Bit 7
 #define     LOG_UserFormula16ActiveMask 0x80
 #define     LOG_UserFormula16ActiveShift 7
-#define LOG_UserFormula17                       5119      // char*, 99 Byte
-#define LOG_UserFormula17Active                 5218      // 1 Bit, Bit 7
+#define LOG_UserFormula17                       5400      // char*, 99 Byte
+#define LOG_UserFormula17Active                 5499      // 1 Bit, Bit 7
 #define     LOG_UserFormula17ActiveMask 0x80
 #define     LOG_UserFormula17ActiveShift 7
-#define LOG_UserFormula18                       5219      // char*, 99 Byte
-#define LOG_UserFormula18Active                 5318      // 1 Bit, Bit 7
+#define LOG_UserFormula18                       5500      // char*, 99 Byte
+#define LOG_UserFormula18Active                 5599      // 1 Bit, Bit 7
 #define     LOG_UserFormula18ActiveMask 0x80
 #define     LOG_UserFormula18ActiveShift 7
-#define LOG_UserFormula19                       5319      // char*, 99 Byte
-#define LOG_UserFormula19Active                 5418      // 1 Bit, Bit 7
+#define LOG_UserFormula19                       5600      // char*, 99 Byte
+#define LOG_UserFormula19Active                 5699      // 1 Bit, Bit 7
 #define     LOG_UserFormula19ActiveMask 0x80
 #define     LOG_UserFormula19ActiveShift 7
-#define LOG_UserFormula20                       5419      // char*, 99 Byte
-#define LOG_UserFormula20Active                 5518      // 1 Bit, Bit 7
+#define LOG_UserFormula20                       5700      // char*, 99 Byte
+#define LOG_UserFormula20Active                 5799      // 1 Bit, Bit 7
 #define     LOG_UserFormula20ActiveMask 0x80
 #define     LOG_UserFormula20ActiveShift 7
-#define LOG_UserFormula21                       5519      // char*, 99 Byte
-#define LOG_UserFormula21Active                 5618      // 1 Bit, Bit 7
+#define LOG_UserFormula21                       5800      // char*, 99 Byte
+#define LOG_UserFormula21Active                 5899      // 1 Bit, Bit 7
 #define     LOG_UserFormula21ActiveMask 0x80
 #define     LOG_UserFormula21ActiveShift 7
-#define LOG_UserFormula22                       5619      // char*, 99 Byte
-#define LOG_UserFormula22Active                 5718      // 1 Bit, Bit 7
+#define LOG_UserFormula22                       5900      // char*, 99 Byte
+#define LOG_UserFormula22Active                 5999      // 1 Bit, Bit 7
 #define     LOG_UserFormula22ActiveMask 0x80
 #define     LOG_UserFormula22ActiveShift 7
-#define LOG_UserFormula23                       5719      // char*, 99 Byte
-#define LOG_UserFormula23Active                 5818      // 1 Bit, Bit 7
+#define LOG_UserFormula23                       6000      // char*, 99 Byte
+#define LOG_UserFormula23Active                 6099      // 1 Bit, Bit 7
 #define     LOG_UserFormula23ActiveMask 0x80
 #define     LOG_UserFormula23ActiveShift 7
-#define LOG_UserFormula24                       5819      // char*, 99 Byte
-#define LOG_UserFormula24Active                 5918      // 1 Bit, Bit 7
+#define LOG_UserFormula24                       6100      // char*, 99 Byte
+#define LOG_UserFormula24Active                 6199      // 1 Bit, Bit 7
 #define     LOG_UserFormula24ActiveMask 0x80
 #define     LOG_UserFormula24ActiveShift 7
-#define LOG_UserFormula25                       5919      // char*, 99 Byte
-#define LOG_UserFormula25Active                 6018      // 1 Bit, Bit 7
+#define LOG_UserFormula25                       6200      // char*, 99 Byte
+#define LOG_UserFormula25Active                 6299      // 1 Bit, Bit 7
 #define     LOG_UserFormula25ActiveMask 0x80
 #define     LOG_UserFormula25ActiveShift 7
-#define LOG_UserFormula26                       6019      // char*, 99 Byte
-#define LOG_UserFormula26Active                 6118      // 1 Bit, Bit 7
+#define LOG_UserFormula26                       6300      // char*, 99 Byte
+#define LOG_UserFormula26Active                 6399      // 1 Bit, Bit 7
 #define     LOG_UserFormula26ActiveMask 0x80
 #define     LOG_UserFormula26ActiveShift 7
-#define LOG_UserFormula27                       6119      // char*, 99 Byte
-#define LOG_UserFormula27Active                 6218      // 1 Bit, Bit 7
+#define LOG_UserFormula27                       6400      // char*, 99 Byte
+#define LOG_UserFormula27Active                 6499      // 1 Bit, Bit 7
 #define     LOG_UserFormula27ActiveMask 0x80
 #define     LOG_UserFormula27ActiveShift 7
-#define LOG_UserFormula28                       6219      // char*, 99 Byte
-#define LOG_UserFormula28Active                 6318      // 1 Bit, Bit 7
+#define LOG_UserFormula28                       6500      // char*, 99 Byte
+#define LOG_UserFormula28Active                 6599      // 1 Bit, Bit 7
 #define     LOG_UserFormula28ActiveMask 0x80
 #define     LOG_UserFormula28ActiveShift 7
-#define LOG_UserFormula29                       6319      // char*, 99 Byte
-#define LOG_UserFormula29Active                 6418      // 1 Bit, Bit 7
+#define LOG_UserFormula29                       6600      // char*, 99 Byte
+#define LOG_UserFormula29Active                 6699      // 1 Bit, Bit 7
 #define     LOG_UserFormula29ActiveMask 0x80
 #define     LOG_UserFormula29ActiveShift 7
-#define LOG_UserFormula30                       6419      // char*, 99 Byte
-#define LOG_UserFormula30Active                 6518      // 1 Bit, Bit 7
+#define LOG_UserFormula30                       6700      // char*, 99 Byte
+#define LOG_UserFormula30Active                 6799      // 1 Bit, Bit 7
 #define     LOG_UserFormula30ActiveMask 0x80
 #define     LOG_UserFormula30ActiveShift 7
 
@@ -4289,7 +4627,7 @@
 #define LOG_ChannelCount 3
 
 // Parameter per channel
-#define LOG_ParamBlockOffset 6519
+#define LOG_ParamBlockOffset 6800
 #define LOG_ParamBlockSize 85
 #define LOG_ParamCalcIndex(index) (index + LOG_ParamBlockOffset + _channelIndex * LOG_ParamBlockSize)
 
@@ -6125,10 +6463,10 @@
 #define ParamLOG_fOOffKOSendNumberRel                ((int16_t)knx.paramWord(LOG_ParamCalcIndex(LOG_fOOffKOSendNumberRel)))
 
 // deprecated
-#define LOG_KoOffset 751
+#define LOG_KoOffset 761
 
 // Communication objects per channel (multiple occurrence)
-#define LOG_KoBlockOffset 751
+#define LOG_KoBlockOffset 761
 #define LOG_KoBlockSize 3
 
 #define LOG_KoCalcNumber(index) (index + LOG_KoBlockOffset + _channelIndex * LOG_KoBlockSize)
@@ -6146,7 +6484,7 @@
 // Ausgang
 #define KoLOG_KOfO                                (knx.getGroupObject(LOG_KoCalcNumber(LOG_KoKOfO)))
 
-#define FCB_VisibleChannels                     6774      // uint8_t
+#define FCB_VisibleChannels                     7055      // uint8_t
 
 // Verfügbare Kanäle
 #define ParamFCB_VisibleChannels                     (knx.paramByte(FCB_VisibleChannels))
@@ -6154,7 +6492,7 @@
 #define FCB_ChannelCount 1
 
 // Parameter per channel
-#define FCB_ParamBlockOffset 6775
+#define FCB_ParamBlockOffset 7056
 #define FCB_ParamBlockSize 71
 #define FCB_ParamCalcIndex(index) (index + FCB_ParamBlockOffset + _channelIndex * FCB_ParamBlockSize)
 
@@ -6831,10 +7169,10 @@
 #define ParamFCB_CHBlinkerStartAnzahl                ((bool)(knx.paramByte(FCB_ParamCalcIndex(FCB_CHBlinkerStartAnzahl)) & FCB_CHBlinkerStartAnzahlMask))
 
 // deprecated
-#define FCB_KoOffset 1050
+#define FCB_KoOffset 1060
 
 // Communication objects per channel (multiple occurrence)
-#define FCB_KoBlockOffset 1050
+#define FCB_KoBlockOffset 1060
 #define FCB_KoBlockSize 10
 
 #define FCB_KoCalcNumber(index) (index + FCB_KoBlockOffset + _channelIndex * FCB_KoBlockSize)
@@ -6881,7 +7219,7 @@
 #define BASE_KommentarModuleModuleParamSize 0
 #define BASE_KommentarModuleSubmodulesParamSize 0
 #define BASE_KommentarModuleParamSize 0
-#define BASE_KommentarModuleParamOffset 6846
+#define BASE_KommentarModuleParamOffset 7127
 #define BASE_KommentarModuleCalcIndex(index, m1) (index + BASE_KommentarModuleParamOffset + _channelIndex * BASE_KommentarModuleCount * BASE_KommentarModuleParamSize + m1 * BASE_KommentarModuleParamSize)
 
 
