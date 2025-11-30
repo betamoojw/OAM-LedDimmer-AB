@@ -21,10 +21,10 @@
 #define ETS_ModuleId_SENS 10
 #define ETS_ModuleId_LOG 11
 #define ETS_ModuleId_FCB 12
-#define MAIN_FirmwareName "LED-Dimmer (AB-SmartHouse) (dev)"
-#define MAIN_OpenKnxId 0xAF
+#define MAIN_FirmwareName "LED-Dimmer (AB-SmartHouse)"
+#define MAIN_OpenKnxId 0xA6
 #define MAIN_ApplicationNumber 7
-#define MAIN_ApplicationVersion 25
+#define MAIN_ApplicationVersion 12
 #define MAIN_FirmwareRevision 0
 #define MAIN_ApplicationEncoding iso-8859-15
 #define MAIN_ParameterSize 15926
@@ -32,7 +32,7 @@
 #define MAIN_OrderNumber "OpenKnxLedDimmerAB"
 #define BASE_ModuleVersion 21
 #define UCT_ModuleVersion 4
-#define LED_ModuleVersion 11
+#define LED_ModuleVersion 12
 #define SWA_ModuleVersion 1
 #define BI_ModuleVersion 2
 #define BTN_ModuleVersion 5
@@ -414,9 +414,9 @@
 #define KoLED_TotalPower                          (knx.getGroupObject(LED_KoTotalPower))
 // Gesamtstrom
 #define KoLED_TotalCurrent                        (knx.getGroupObject(LED_KoTotalCurrent))
-// Netzteilschutz
+// Netzteilschutz, Dauerlast überschritten
 #define KoLED_PowerSupplyProtContCurrent          (knx.getGroupObject(LED_KoPowerSupplyProtContCurrent))
-// Netzteilschutz
+// Netzteilschutz, Maximallast überschritten
 #define KoLED_PowerSupplyProtOverload             (knx.getGroupObject(LED_KoPowerSupplyProtOverload))
 
 #define LED_ChannelCount 16
@@ -956,11 +956,11 @@
 #define ParamLED_SC_ChMeasureActive                     ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChMeasureActive)) & LED_SC_ChMeasureActiveMask))
 // Schutzfunktionen aktivieren
 #define ParamLED_SC_ChProtecitonsActive                 ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChProtecitonsActive)) & LED_SC_ChProtecitonsActiveMask))
-// Bei Ã„nderung senden
+// Bei Änderung senden
 #define ParamLED_SC_ChPowerSend                         ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChPowerSend)) & LED_SC_ChPowerSendMask))
-// Bei Ã„nderung senden
+// Bei Änderung senden
 #define ParamLED_SC_ChCurrentSend                       ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSend)) & LED_SC_ChCurrentSendMask))
-// GerÃ¤teschutz aktivieren
+// Geräteschutz aktivieren
 #define ParamLED_SC_ChDeviceProtActive                  ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtActive)) & LED_SC_ChDeviceProtActiveMask))
 // Schutzabschaltung aktivieren
 #define ParamLED_SC_ChDeviceProtCutOff                  ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtCutOff)) & LED_SC_ChDeviceProtCutOffMask))
@@ -968,9 +968,9 @@
 #define ParamLED_SC_ChLampProtActive                    ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtActive)) & LED_SC_ChLampProtActiveMask))
 // Schutzabschaltung aktivieren
 #define ParamLED_SC_ChLampProtCutOff                    ((bool)(knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtCutOff)) & LED_SC_ChLampProtCutOffMask))
-// MindestÃ¤nderung relativ
+// Mindeständerung relativ
 #define ParamLED_SC_ChPowerSendMinChangePercent         (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendMinChangePercent)))
-// MindestÃ¤nderung absolut
+// Mindeständerung absolut
 #define ParamLED_SC_ChPowerSendMinChangeAbsolute        (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendMinChangeAbsolute)))
 // Zeitbasis
 #define ParamLED_SC_ChPowerSendCyclicBase               ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendCyclicBase)) & LED_SC_ChPowerSendCyclicBaseMask) >> LED_SC_ChPowerSendCyclicBaseShift)
@@ -978,9 +978,9 @@
 #define ParamLED_SC_ChPowerSendCyclicTime               (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendCyclicTime)) & LED_SC_ChPowerSendCyclicTimeMask)
 // Zeit (in Millisekunden)
 #define ParamLED_SC_ChPowerSendCyclicTimeMS             (paramDelay(knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChPowerSendCyclicTime))))
-// MindestÃ¤nderung relativ
+// Mindeständerung relativ
 #define ParamLED_SC_ChCurrentSendMinChangePercent       (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendMinChangePercent)))
-// MindestÃ¤nderung absolut
+// Mindeständerung absolut
 #define ParamLED_SC_ChCurrentSendMinChangeAbsolute      (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendMinChangeAbsolute)))
 // Zeitbasis
 #define ParamLED_SC_ChCurrentSendCyclicBase             ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendCyclicBase)) & LED_SC_ChCurrentSendCyclicBaseMask) >> LED_SC_ChCurrentSendCyclicBaseShift)
@@ -990,7 +990,7 @@
 #define ParamLED_SC_ChCurrentSendCyclicTimeMS           (paramDelay(knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChCurrentSendCyclicTime))))
 // Dauerlast
 #define ParamLED_SC_ChDeviceProtConstCurrent            (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtConstCurrent)))
-// Max. Ãœberlast
+// Max. Überlast
 #define ParamLED_SC_ChDeviceProtOverloadPercent         (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtOverloadPercent)))
 // Zeitbasis
 #define ParamLED_SC_ChDeviceProtOverloadBase            ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtOverloadBase)) & LED_SC_ChDeviceProtOverloadBaseMask) >> LED_SC_ChDeviceProtOverloadBaseShift)
@@ -998,7 +998,7 @@
 #define ParamLED_SC_ChDeviceProtOverloadTime            (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtOverloadTime)) & LED_SC_ChDeviceProtOverloadTimeMask)
 // Zeit (in Millisekunden)
 #define ParamLED_SC_ChDeviceProtOverloadTimeMS          (paramDelay(knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChDeviceProtOverloadTime))))
-// KabellÃ¤nge
+// Kabellänge
 #define ParamLED_SC_ChLampProtCableLength               (knx.paramFloat(LED_SC_ParamCalcIndex(LED_SC_ChLampProtCableLength), Float_Enc_IEEE754Single))
 // Dauerleistung
 #define ParamLED_SC_ChLampProtConstPower                (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChLampProtConstPower)))
@@ -1008,7 +1008,7 @@
 #define ParamLED_SC_ChLampProtOverloadTime              (knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChLampProtOverloadTime)) & LED_SC_ChLampProtOverloadTimeMask)
 // Zeit (in Millisekunden)
 #define ParamLED_SC_ChLampProtOverloadTimeMS            (paramDelay(knx.paramWord(LED_SC_ParamCalcIndex(LED_SC_ChLampProtOverloadTime))))
-// Max. Ãœberlast
+// Max. Überlast
 #define ParamLED_SC_ChLampProtOverloadPercent           (knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtOverloadPercent)))
 // Leiterquerschnitt
 #define ParamLED_SC_ChLampProtCableCrossSect            ((knx.paramByte(LED_SC_ParamCalcIndex(LED_SC_ChLampProtCableCrossSect)) & LED_SC_ChLampProtCableCrossSectMask) >> LED_SC_ChLampProtCableCrossSectShift)
@@ -1043,19 +1043,19 @@
 
 // Schalten
 #define KoLED_SC_ChSwitch                            (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChSwitch)))
-// Schalten Sofort
+// Schalten sofort
 #define KoLED_SC_ChSwitchNoDim                       (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChSwitchNoDim)))
-// Status Ein/Aus
+// Schalten Status
 #define KoLED_SC_ChStateOnOff                        (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChStateOnOff)))
 // Sperren
 #define KoLED_SC_ChLocking                           (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChLocking)))
 // Sperren Status
 #define KoLED_SC_ChStateLocking                      (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChStateLocking)))
-// Helligkeit
+// Dimmwert absolut
 #define KoLED_SC_ChBrightness                        (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChBrightness)))
-// Helligkeit Relativ
+// Dimmwert relativ
 #define KoLED_SC_ChBrightnessRel                     (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChBrightnessRel)))
-// Helligkeit Status
+// Dimmwert Status
 #define KoLED_SC_ChBrightnessStatus                  (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChBrightnessStatus)))
 // Nacht
 #define KoLED_SC_ChNight                             (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChNight)))
@@ -1065,13 +1065,13 @@
 #define KoLED_SC_ChPower                             (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChPower)))
 // Strom
 #define KoLED_SC_ChCurrent                           (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChCurrent)))
-// GerÃ¤teschutz
+// Geräteschutz, Dauerlast überschritten
 #define KoLED_SC_ChDeviceProtConstCurrent            (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChDeviceProtConstCurrent)))
-// GerÃ¤teschutz
+// Geräteschutz, Maximallast überschritten
 #define KoLED_SC_ChDeviceProtOverload                (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChDeviceProtOverload)))
-// Leuchtmittelschutz
+// Leuchtmittelschutz, Dauerlast überschritten
 #define KoLED_SC_ChLampProtConstCurrent              (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChLampProtConstCurrent)))
-// Leuchtmittelschutz
+// Leuchtmittelschutz, Maximallast überschritten
 #define KoLED_SC_ChLampProtOverload                  (knx.getGroupObject(LED_SC_KoCalcNumber(LED_SC_KoChLampProtOverload)))
 
 #define LED_TW_ChannelCount 8
@@ -1639,11 +1639,11 @@
 #define ParamLED_TW_ChMeasureActive                     ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChMeasureActive)) & LED_TW_ChMeasureActiveMask))
 // Schutzfunktionen aktivieren
 #define ParamLED_TW_ChProtecitonsActive                 ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChProtecitonsActive)) & LED_TW_ChProtecitonsActiveMask))
-// Bei Ã„nderung senden
+// Bei Änderung senden
 #define ParamLED_TW_ChPowerSend                         ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChPowerSend)) & LED_TW_ChPowerSendMask))
-// Bei Ã„nderung senden
+// Bei Änderung senden
 #define ParamLED_TW_ChCurrentSend                       ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChCurrentSend)) & LED_TW_ChCurrentSendMask))
-// GerÃ¤teschutz aktivieren
+// Geräteschutz aktivieren
 #define ParamLED_TW_ChDeviceProtActive                  ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtActive)) & LED_TW_ChDeviceProtActiveMask))
 // Schutzabschaltung aktivieren
 #define ParamLED_TW_ChDeviceProtCutOff                  ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtCutOff)) & LED_TW_ChDeviceProtCutOffMask))
@@ -1651,9 +1651,9 @@
 #define ParamLED_TW_ChLampProtActive                    ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChLampProtActive)) & LED_TW_ChLampProtActiveMask))
 // Schutzabschaltung aktivieren
 #define ParamLED_TW_ChLampProtCutOff                    ((bool)(knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChLampProtCutOff)) & LED_TW_ChLampProtCutOffMask))
-// MindestÃ¤nderung relativ
+// Mindeständerung relativ
 #define ParamLED_TW_ChPowerSendMinChangePercent         (knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChPowerSendMinChangePercent)))
-// MindestÃ¤nderung absolut
+// Mindeständerung absolut
 #define ParamLED_TW_ChPowerSendMinChangeAbsolute        (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChPowerSendMinChangeAbsolute)))
 // Zeitbasis
 #define ParamLED_TW_ChPowerSendCyclicBase               ((knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChPowerSendCyclicBase)) & LED_TW_ChPowerSendCyclicBaseMask) >> LED_TW_ChPowerSendCyclicBaseShift)
@@ -1661,9 +1661,9 @@
 #define ParamLED_TW_ChPowerSendCyclicTime               (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChPowerSendCyclicTime)) & LED_TW_ChPowerSendCyclicTimeMask)
 // Zeit (in Millisekunden)
 #define ParamLED_TW_ChPowerSendCyclicTimeMS             (paramDelay(knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChPowerSendCyclicTime))))
-// MindestÃ¤nderung relativ
+// Mindeständerung relativ
 #define ParamLED_TW_ChCurrentSendMinChangePercent       (knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChCurrentSendMinChangePercent)))
-// MindestÃ¤nderung absolut
+// Mindeständerung absolut
 #define ParamLED_TW_ChCurrentSendMinChangeAbsolute      (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChCurrentSendMinChangeAbsolute)))
 // Zeitbasis
 #define ParamLED_TW_ChCurrentSendCyclicBase             ((knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChCurrentSendCyclicBase)) & LED_TW_ChCurrentSendCyclicBaseMask) >> LED_TW_ChCurrentSendCyclicBaseShift)
@@ -1673,7 +1673,7 @@
 #define ParamLED_TW_ChCurrentSendCyclicTimeMS           (paramDelay(knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChCurrentSendCyclicTime))))
 // Dauerlast
 #define ParamLED_TW_ChDeviceProtConstCurrent            (knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtConstCurrent)))
-// Max. Ãœberlast
+// Max. Überlast
 #define ParamLED_TW_ChDeviceProtOverloadPercent         (knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtOverloadPercent)))
 // Zeitbasis
 #define ParamLED_TW_ChDeviceProtOverloadBase            ((knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtOverloadBase)) & LED_TW_ChDeviceProtOverloadBaseMask) >> LED_TW_ChDeviceProtOverloadBaseShift)
@@ -1681,7 +1681,7 @@
 #define ParamLED_TW_ChDeviceProtOverloadTime            (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtOverloadTime)) & LED_TW_ChDeviceProtOverloadTimeMask)
 // Zeit (in Millisekunden)
 #define ParamLED_TW_ChDeviceProtOverloadTimeMS          (paramDelay(knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChDeviceProtOverloadTime))))
-// KabellÃ¤nge
+// Kabellänge
 #define ParamLED_TW_ChLampProtCableLength               (knx.paramFloat(LED_TW_ParamCalcIndex(LED_TW_ChLampProtCableLength), Float_Enc_IEEE754Single))
 // Dauerleistung
 #define ParamLED_TW_ChLampProtConstPower                (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChLampProtConstPower)))
@@ -1691,7 +1691,7 @@
 #define ParamLED_TW_ChLampProtOverloadTime              (knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChLampProtOverloadTime)) & LED_TW_ChLampProtOverloadTimeMask)
 // Zeit (in Millisekunden)
 #define ParamLED_TW_ChLampProtOverloadTimeMS            (paramDelay(knx.paramWord(LED_TW_ParamCalcIndex(LED_TW_ChLampProtOverloadTime))))
-// Max. Ãœberlast
+// Max. Überlast
 #define ParamLED_TW_ChLampProtOverloadPercent           (knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChLampProtOverloadPercent)))
 // Leiterquerschnitt
 #define ParamLED_TW_ChLampProtCableCrossSect            ((knx.paramByte(LED_TW_ParamCalcIndex(LED_TW_ChLampProtCableCrossSect)) & LED_TW_ChLampProtCableCrossSectMask) >> LED_TW_ChLampProtCableCrossSectShift)
@@ -1730,25 +1730,25 @@
 
 // Schalten
 #define KoLED_TW_ChSwitch                            (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChSwitch)))
-// Schalten Sofort
+// Schalten sofort
 #define KoLED_TW_ChSwitchNoDim                       (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChSwitchNoDim)))
 // Schalten Boost
 #define KoLED_TW_ChSwitchBoost                       (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChSwitchBoost)))
-// Status Ein/Aus
+// Schalten Status
 #define KoLED_TW_ChStateOnOff                        (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChStateOnOff)))
 // Sperren
 #define KoLED_TW_ChLocking                           (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChLocking)))
 // Sperren Status
 #define KoLED_TW_ChStateLocking                      (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChStateLocking)))
-// Helligkeit
+// Dimmwert absolut
 #define KoLED_TW_ChBrightness                        (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChBrightness)))
-// Helligkeit Relativ
+// Dimmwert relativ
 #define KoLED_TW_ChBrightnessRel                     (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChBrightnessRel)))
-// Helligkeit Status
+// Dimmwert Status
 #define KoLED_TW_ChBrightnessStatus                  (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChBrightnessStatus)))
-// Farbtemperatur
+// Farbtemperatur absolut
 #define KoLED_TW_ChColorTemperature                  (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChColorTemperature)))
-// Farbtemperatur Relativ
+// Farbtemperatur relativ
 #define KoLED_TW_ChColorTemperatureRel               (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChColorTemperatureRel)))
 // Farbtemperatur Status
 #define KoLED_TW_ChColorTemperatureStatus            (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChColorTemperatureStatus)))
@@ -1760,13 +1760,13 @@
 #define KoLED_TW_ChPower                             (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChPower)))
 // Strom
 #define KoLED_TW_ChCurrent                           (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChCurrent)))
-// GerÃ¤teschutz
+// Geräteschutz, Dauerlast überschritten
 #define KoLED_TW_ChDeviceProtConstCurrent            (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChDeviceProtConstCurrent)))
-// GerÃ¤teschutz
+// Geräteschutz, Maximallast überschritten
 #define KoLED_TW_ChDeviceProtOverload                (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChDeviceProtOverload)))
-// Leuchtmittelschutz
+// Leuchtmittelschutz, Dauerlast überschritten
 #define KoLED_TW_ChLampProtConstCurrent              (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChLampProtConstCurrent)))
-// Leuchtmittelschutz
+// Leuchtmittelschutz, Maximallast überschritten
 #define KoLED_TW_ChLampProtOverload                  (knx.getGroupObject(LED_TW_KoCalcNumber(LED_TW_KoChLampProtOverload)))
 
 #define LED_RGB_ChannelCount 5
@@ -2470,11 +2470,11 @@
 #define ParamLED_RGB_ChMeasureActive                     ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChMeasureActive)) & LED_RGB_ChMeasureActiveMask))
 // Schutzfunktionen aktivieren
 #define ParamLED_RGB_ChProtecitonsActive                 ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChProtecitonsActive)) & LED_RGB_ChProtecitonsActiveMask))
-// Bei Ã„nderung senden
+// Bei Änderung senden
 #define ParamLED_RGB_ChPowerSend                         ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChPowerSend)) & LED_RGB_ChPowerSendMask))
-// Bei Ã„nderung senden
+// Bei Änderung senden
 #define ParamLED_RGB_ChCurrentSend                       ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChCurrentSend)) & LED_RGB_ChCurrentSendMask))
-// GerÃ¤teschutz aktivieren
+// Geräteschutz aktivieren
 #define ParamLED_RGB_ChDeviceProtActive                  ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtActive)) & LED_RGB_ChDeviceProtActiveMask))
 // Schutzabschaltung aktivieren
 #define ParamLED_RGB_ChDeviceProtCutOff                  ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtCutOff)) & LED_RGB_ChDeviceProtCutOffMask))
@@ -2482,9 +2482,9 @@
 #define ParamLED_RGB_ChLampProtActive                    ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtActive)) & LED_RGB_ChLampProtActiveMask))
 // Schutzabschaltung aktivieren
 #define ParamLED_RGB_ChLampProtCutOff                    ((bool)(knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtCutOff)) & LED_RGB_ChLampProtCutOffMask))
-// MindestÃ¤nderung relativ
+// Mindeständerung relativ
 #define ParamLED_RGB_ChPowerSendMinChangePercent         (knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChPowerSendMinChangePercent)))
-// MindestÃ¤nderung absolut
+// Mindeständerung absolut
 #define ParamLED_RGB_ChPowerSendMinChangeAbsolute        (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChPowerSendMinChangeAbsolute)))
 // Zeitbasis
 #define ParamLED_RGB_ChPowerSendCyclicBase               ((knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChPowerSendCyclicBase)) & LED_RGB_ChPowerSendCyclicBaseMask) >> LED_RGB_ChPowerSendCyclicBaseShift)
@@ -2492,9 +2492,9 @@
 #define ParamLED_RGB_ChPowerSendCyclicTime               (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChPowerSendCyclicTime)) & LED_RGB_ChPowerSendCyclicTimeMask)
 // Zeit (in Millisekunden)
 #define ParamLED_RGB_ChPowerSendCyclicTimeMS             (paramDelay(knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChPowerSendCyclicTime))))
-// MindestÃ¤nderung relativ
+// Mindeständerung relativ
 #define ParamLED_RGB_ChCurrentSendMinChangePercent       (knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChCurrentSendMinChangePercent)))
-// MindestÃ¤nderung absolut
+// Mindeständerung absolut
 #define ParamLED_RGB_ChCurrentSendMinChangeAbsolute      (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChCurrentSendMinChangeAbsolute)))
 // Zeitbasis
 #define ParamLED_RGB_ChCurrentSendCyclicBase             ((knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChCurrentSendCyclicBase)) & LED_RGB_ChCurrentSendCyclicBaseMask) >> LED_RGB_ChCurrentSendCyclicBaseShift)
@@ -2504,7 +2504,7 @@
 #define ParamLED_RGB_ChCurrentSendCyclicTimeMS           (paramDelay(knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChCurrentSendCyclicTime))))
 // Dauerlast
 #define ParamLED_RGB_ChDeviceProtConstCurrent            (knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtConstCurrent)))
-// Max. Ãœberlast
+// Max. Überlast
 #define ParamLED_RGB_ChDeviceProtOverloadPercent         (knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtOverloadPercent)))
 // Zeitbasis
 #define ParamLED_RGB_ChDeviceProtOverloadBase            ((knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtOverloadBase)) & LED_RGB_ChDeviceProtOverloadBaseMask) >> LED_RGB_ChDeviceProtOverloadBaseShift)
@@ -2512,7 +2512,7 @@
 #define ParamLED_RGB_ChDeviceProtOverloadTime            (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtOverloadTime)) & LED_RGB_ChDeviceProtOverloadTimeMask)
 // Zeit (in Millisekunden)
 #define ParamLED_RGB_ChDeviceProtOverloadTimeMS          (paramDelay(knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChDeviceProtOverloadTime))))
-// KabellÃ¤nge
+// Kabellänge
 #define ParamLED_RGB_ChLampProtCableLength               (knx.paramFloat(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtCableLength), Float_Enc_IEEE754Single))
 // Dauerleistung
 #define ParamLED_RGB_ChLampProtConstPower                (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtConstPower)))
@@ -2522,7 +2522,7 @@
 #define ParamLED_RGB_ChLampProtOverloadTime              (knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtOverloadTime)) & LED_RGB_ChLampProtOverloadTimeMask)
 // Zeit (in Millisekunden)
 #define ParamLED_RGB_ChLampProtOverloadTimeMS            (paramDelay(knx.paramWord(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtOverloadTime))))
-// Max. Ãœberlast
+// Max. Überlast
 #define ParamLED_RGB_ChLampProtOverloadPercent           (knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtOverloadPercent)))
 // Leiterquerschnitt
 #define ParamLED_RGB_ChLampProtCableCrossSect            ((knx.paramByte(LED_RGB_ParamCalcIndex(LED_RGB_ChLampProtCableCrossSect)) & LED_RGB_ChLampProtCableCrossSectMask) >> LED_RGB_ChLampProtCableCrossSectShift)
@@ -2564,23 +2564,23 @@
 
 // Schalten
 #define KoLED_RGB_ChSwitch                            (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChSwitch)))
-// Schalten Sofort
+// Schalten sofort
 #define KoLED_RGB_ChSwitchNoDim                       (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChSwitchNoDim)))
-// Status Ein/Aus
+// Schalten Status
 #define KoLED_RGB_ChStateOnOff                        (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChStateOnOff)))
 // Sperren
 #define KoLED_RGB_ChLocking                           (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChLocking)))
 // Sperren Status
 #define KoLED_RGB_ChStateLocking                      (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChStateLocking)))
-// Helligkeit
+// Dimmwert absolut
 #define KoLED_RGB_ChBrightness                        (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChBrightness)))
-// Helligkeit Relativ
+// Dimmwert relativ
 #define KoLED_RGB_ChBrightnessRel                     (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChBrightnessRel)))
-// Helligkeit Status
+// Dimmwert Status
 #define KoLED_RGB_ChBrightnessStatus                  (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChBrightnessStatus)))
-// Farbtemperatur
+// Farbtemperatur absolut
 #define KoLED_RGB_ChColorTemperature                  (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChColorTemperature)))
-// Farbtemperatur Relativ
+// Farbtemperatur relativ
 #define KoLED_RGB_ChColorTemperatureRel               (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChColorTemperatureRel)))
 // Farbtemperatur Status
 #define KoLED_RGB_ChColorTemperatureStatus            (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChColorTemperatureStatus)))
@@ -2600,13 +2600,13 @@
 #define KoLED_RGB_ChPower                             (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChPower)))
 // Strom
 #define KoLED_RGB_ChCurrent                           (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChCurrent)))
-// GerÃ¤teschutz
+// Geräteschutz, Dauerlast überschritten
 #define KoLED_RGB_ChDeviceProtConstCurrent            (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChDeviceProtConstCurrent)))
-// GerÃ¤teschutz
+// Geräteschutz, Maximallast überschritten
 #define KoLED_RGB_ChDeviceProtOverload                (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChDeviceProtOverload)))
-// Leuchtmittelschutz
+// Leuchtmittelschutz, Dauerlast überschritten
 #define KoLED_RGB_ChLampProtConstCurrent              (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChLampProtConstCurrent)))
-// Leuchtmittelschutz
+// Leuchtmittelschutz, Maximallast überschritten
 #define KoLED_RGB_ChLampProtOverload                  (knx.getGroupObject(LED_RGB_KoCalcNumber(LED_RGB_KoChLampProtOverload)))
 
 #define SWA_VisibleChannels                     3051      // uint8_t
@@ -2681,9 +2681,9 @@
 
 // Zentralfunktion
 #define KoSWA_CentralFunction                     (knx.getGroupObject(SWA_KoCentralFunction))
-// 
+// Gesamtleistung
 #define KoSWA_TotalPower                          (knx.getGroupObject(SWA_KoTotalPower))
-// 
+// Gesamtstrom
 #define KoSWA_TotalCurrent                        (knx.getGroupObject(SWA_KoTotalCurrent))
 
 #define SWA_ChannelCount 1
@@ -3029,23 +3029,23 @@
 #define SWA_KoChCurrent 7
 #define SWA_KoChVoltage 8
 
-// 
+// Schalten
 #define KoSWA_ChSwitch                            (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChSwitch)))
-// 
+// Status
 #define KoSWA_ChStatus                            (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChStatus)))
-// 
+// Invertierter Status
 #define KoSWA_ChStatusInverted                    (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChStatusInverted)))
-// 
+// Sperren
 #define KoSWA_ChLock                              (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChLock)))
-// 
+// Sperren Status
 #define KoSWA_ChLockStatus                        (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChLockStatus)))
-// 
+// Szene
 #define KoSWA_ChScene                             (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChScene)))
-// 
+// Wirkleistung
 #define KoSWA_ChPower                             (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChPower)))
-// 
+// Strom
 #define KoSWA_ChCurrent                           (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChCurrent)))
-// 
+// Spannung
 #define KoSWA_ChVoltage                           (knx.getGroupObject(SWA_KoCalcNumber(SWA_KoChVoltage)))
 
 
