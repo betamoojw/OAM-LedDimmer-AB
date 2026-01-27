@@ -1,22 +1,22 @@
 #pragma once
 
-#define MAIN_Version "a6ab69f"
-#define KNX_Version "2.2.2+ee3c00e"
+#define MAIN_Version "d8b3659"
+#define KNX_Version "2.2.2+288b299"
 #define MODULE_FileTransferModule_Version "0.1.4+3a96b4e"
 #define MODULE_FileTransferModule_Version_Major 0
 #define MODULE_FileTransferModule_Version_Minor 1
 #define MODULE_FileTransferModule_Version_Revision 4
 #define MODULE_FileTransferModule_ETS 1
-#define MODULE_Common_Version "1.5.1+193e462"
+#define MODULE_Common_Version "1.6.0+86b8cad"
 #define MODULE_Common_Version_Major 1
-#define MODULE_Common_Version_Minor 5
-#define MODULE_Common_Version_Revision 1
-#define MODULE_Common_ETS 21
-#define MODULE_LogicModule_Version "3.7.3+ea7c433"
+#define MODULE_Common_Version_Minor 6
+#define MODULE_Common_Version_Revision 0
+#define MODULE_Common_ETS 22
+#define MODULE_LogicModule_Version "3.8.0+55beacc"
 #define MODULE_LogicModule_Version_Major 3
-#define MODULE_LogicModule_Version_Minor 7
-#define MODULE_LogicModule_Version_Revision 3
-#define MODULE_LogicModule_ETS 55
+#define MODULE_LogicModule_Version_Minor 8
+#define MODULE_LogicModule_Version_Revision 0
+#define MODULE_LogicModule_ETS 56
 #define MODULE_FunctionBlocks_Version "0.6.0+7663283"
 #define MODULE_FunctionBlocks_Version_Major 0
 #define MODULE_FunctionBlocks_Version_Minor 6
@@ -27,7 +27,7 @@
 #define MODULE_BinaryInput_Version_Minor 2
 #define MODULE_BinaryInput_Version_Revision 1
 #define MODULE_BinaryInput_ETS 2
-#define MODULE_LedModule_Version "0.12.0-DEV+da4b17a"
+#define MODULE_LedModule_Version "0.12.0-DEV+843f6d5"
 #define MODULE_LedModule_Version_Major 0
 #define MODULE_LedModule_Version_Minor 12
 #define MODULE_LedModule_Version_Revision 0
@@ -41,7 +41,7 @@
 #define MODULE_SensorModule_Version_Minor 10
 #define MODULE_SensorModule_Version_Revision 0
 #define MODULE_SensorModule_ETS 74
-#define MODULE_SwitchActuator_Version "0.1.0+2ab89b6"
+#define MODULE_SwitchActuator_Version "0.1.0+a03e80f"
 #define MODULE_SwitchActuator_Version_Major 0
 #define MODULE_SwitchActuator_Version_Minor 1
 #define MODULE_SwitchActuator_Version_Revision 0

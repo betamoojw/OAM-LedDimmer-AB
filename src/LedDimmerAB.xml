@@ -10,7 +10,7 @@
   <op:ETS
     OpenKnxId="0xAF"
     ApplicationNumber="0x07"
-    ApplicationVersion="2.0"
+    ApplicationVersion="3.4"
     ReplacesVersions="0.0"
     ApplicationRevision="0"
     FirmwareRevision="0"
@@ -125,6 +125,7 @@
 
 <generate>
   <Dynamic>
+  <op:include href="LedDimmerAB.share.xml" xpath="//ApplicationProgram/Dynamic/*" prefix="LED_AB" />
   <op:include href="../lib/OGM-Common/src/Common.share.xml" xpath="//ApplicationProgram/Dynamic/*" prefix="BASE" />
   <op:include href="../lib/OFM-ConfigTransfer/src/ConfigTransfer.share.xml" xpath="//ApplicationProgram/Dynamic/*" prefix="UCT" />
   <op:include href="../lib/OFM-LedModule/src/LEDModule.share.xml" xpath="//ApplicationProgram/Dynamic/*" prefix="CMN" />
