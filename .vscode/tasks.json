@@ -25,8 +25,7 @@
             ],
             "group": "build",
             "problemMatcher": [],
-            "dependsOrder": "sequence",
-            "dependsOn": ["Gen. Dependencies.txt"]
+            "dependsOrder": "sequence"
         },
         {
             "label": "Build JLINK",
@@ -54,8 +53,7 @@
             ],
             "problemMatcher": [],
             "group": "test",
-            "dependsOrder": "sequence",
-            "dependsOn": ["Gen. Dependencies.txt"]
+            "dependsOrder": "sequence"
         },
         {
             "label": "OpenKNXproducer Release",
@@ -70,8 +68,7 @@
             ],
             "problemMatcher": [],
             "group": "test",
-            "dependsOrder": "sequence",
-            "dependsOn": ["Gen. Dependencies.txt"]
+            "dependsOrder": "sequence"
         },
         {
             "label": "Gen. Dependencies.txt",
