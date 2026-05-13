@@ -53,9 +53,7 @@
                 "src/LedDimmerAB.xml"
             ],
             "problemMatcher": [],
-            "group": "test",
-            "dependsOrder": "sequence",
-            "dependsOn": ["Gen. Dependencies.txt"]
+            "group": "test"
         },
         {
             "label": "OpenKNXproducer Release",
@@ -69,9 +67,7 @@
                 "src/LedDimmerAB-Release.xml"
             ],
             "problemMatcher": [],
-            "group": "test",
-            "dependsOrder": "sequence",
-            "dependsOn": ["Gen. Dependencies.txt"]
+            "group": "test"
         },
         {
             "label": "Gen. Dependencies.txt",
