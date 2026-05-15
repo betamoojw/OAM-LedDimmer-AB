@@ -64,6 +64,10 @@
     #define OPENKNX_GPIO_CLOCK                      400000
 
     #define OPENKNX_LED_TEMPSENS_ADDR               0x48
+    #define OPENKNX_LED_TEMPSENS_TYPE_TMP102        true
+    #define OPENKNX_LED_TEMPSENS_WIRE               OPENKNX_GPIO_WIRE
+    #define OPENKNX_LED_TEMPSENS_PIN_SDA            OPENKNX_GPIO_SDA
+    #define OPENKNX_LED_TEMPSENS_PIN_SCL            OPENKNX_GPIO_SCL
 #endif
 
 /**
