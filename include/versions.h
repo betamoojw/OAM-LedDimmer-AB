@@ -1,6 +1,6 @@
 #pragma once
 
-#define MAIN_Version "98a7f1c"
+#define MAIN_Version "4694e82"
 #define KNX_Version "2.3.1+49c1072"
 #define MODULE_FileTransferModule_Version "0.1.5+178f186"
 #define MODULE_FileTransferModule_Version_Major 0
@@ -27,7 +27,7 @@
 #define MODULE_BinaryInput_Version_Minor 3
 #define MODULE_BinaryInput_Version_Revision 1
 #define MODULE_BinaryInput_ETS 3
-#define MODULE_LedModule_Version "0.13.0-DEV+c5b30cd"
+#define MODULE_LedModule_Version "0.13.0-DEV+7f644c5"
 #define MODULE_LedModule_Version_Major 0
 #define MODULE_LedModule_Version_Minor 13
 #define MODULE_LedModule_Version_Revision 0
@@ -41,7 +41,7 @@
 #define MODULE_SensorModule_Version_Minor 11
 #define MODULE_SensorModule_Version_Revision 3
 #define MODULE_SensorModule_ETS 75
-#define MODULE_SwitchActuator_Version "0.1.0+f2845c4"
+#define MODULE_SwitchActuator_Version "0.1.0+7d4ec51"
 #define MODULE_SwitchActuator_Version_Major 0
 #define MODULE_SwitchActuator_Version_Minor 1
 #define MODULE_SwitchActuator_Version_Revision 0

@@ -13,9 +13,6 @@
 			"path": "../OFM-BinaryInput"
 		},
 		{
-			"path": "../OFM-GPIOModule"
-		},
-		{
 			"path": "../OFM-SwitchActuator"
 		},
 		{
