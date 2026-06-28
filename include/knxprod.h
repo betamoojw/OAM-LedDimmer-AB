@@ -18,19 +18,19 @@
 #define ETS_ModuleId_SENS 7
 #define ETS_ModuleId_LOG 8
 #define ETS_ModuleId_FCB 9
-#define MAIN_FirmwareName "LED-Dimmer (AB-SmartHouse) (dev)"
-#define MAIN_OpenKnxId 0xAF
+#define MAIN_FirmwareName "LED-Dimmer (AB-SmartHouse)"
+#define MAIN_OpenKnxId 0xA6
 #define MAIN_ApplicationNumber 7
-#define MAIN_ApplicationVersion 53
+#define MAIN_ApplicationVersion 13
 #define MAIN_FirmwareRevision 0
 #define MAIN_ApplicationEncoding iso-8859-15
-#define MAIN_ParameterSize 8129
-#define MAIN_MaxKoNumber 1259
+#define MAIN_ParameterSize 17402
+#define MAIN_MaxKoNumber 1349
 #define MAIN_OrderNumber "OpenKnxLedDimmerAB"
 #define BASE_ModuleVersion 24
 #define UCT_ModuleVersion 5
 #define LED_ModuleVersion 13
-#define SWA_ModuleVersion 1
+#define SWA_ModuleVersion 3
 #define BI_ModuleVersion 3
 #define BTN_ModuleVersion 6
 #define SENS_ModuleVersion 75
@@ -6561,7 +6561,7 @@
 // Welcher Feiertag ist morgen?
 #define KoLOG_Holiday2                            (knx.getGroupObject(LOG_KoHoliday2))
 
-#define LOG_ChannelCount 3
+#define LOG_ChannelCount 99
 
 // Parameter per channel
 #define LOG_ParamBlockOffset 7780
@@ -8469,15 +8469,15 @@
 // Ausgang
 #define KoLOG_KOfO                                (knx.getGroupObject(LOG_KoCalcNumber(LOG_KoKOfO)))
 
-#define FCB_VisibleChannels                     8047      // uint8_t
+#define FCB_VisibleChannels                     16591      // uint8_t
 
 // Verfügbare Kanäle
 #define ParamFCB_VisibleChannels                     (knx.paramByte(FCB_VisibleChannels))
 
-#define FCB_ChannelCount 1
+#define FCB_ChannelCount 10
 
 // Parameter per channel
-#define FCB_ParamBlockOffset 8048
+#define FCB_ParamBlockOffset 16592
 #define FCB_ParamBlockSize 81
 #define FCB_ParamCalcIndex(index) (index + FCB_ParamBlockOffset + _channelIndex * FCB_ParamBlockSize)
 
@@ -9549,7 +9549,7 @@
 #define BASE_KommentarModuleModuleParamSize 0
 #define BASE_KommentarModuleSubmodulesParamSize 0
 #define BASE_KommentarModuleParamSize 0
-#define BASE_KommentarModuleParamOffset 8129
+#define BASE_KommentarModuleParamOffset 17402
 #define BASE_KommentarModuleCalcIndex(index, m1) (index + BASE_KommentarModuleParamOffset + _channelIndex * BASE_KommentarModuleCount * BASE_KommentarModuleParamSize + m1 * BASE_KommentarModuleParamSize)
 
 

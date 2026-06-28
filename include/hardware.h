@@ -489,3 +489,10 @@
     #define OPENKNX_LED_TEMPSENS_PIN_SDA            OPENKNX_GPIO_SDA
     #define OPENKNX_LED_TEMPSENS_PIN_SCL            OPENKNX_GPIO_SCL
 #endif
+
+/**
+ * @brief Overrides LED initialization from Common to disable PWM for status LEDs
+ */
+#define LED_INIT() \
+    openknx.leds.addLed(new OpenKNX::Led::GPIO(PROG_LED_PIN, PROG_LED_PIN_ACTIVE_ON, false), OpenKNX::Led::LED_TYPE_PROG); \
+    openknx.leds.addLed(new OpenKNX::Led::GPIO(INFO_LED_PIN, INFO_LED_PIN_ACTIVE_ON, false), OpenKNX::Led::LED_TYPE_INFO1);

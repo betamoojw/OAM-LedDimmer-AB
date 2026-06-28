@@ -10,7 +10,7 @@
     ApplicationVersion="%LED_ApplicationVersion%"
     ReplacesVersions="%LED_ReplacesVersions%"
     ApplicationRevision="0"
-    FirmwareRevision="1"
+    FirmwareRevision="0"
     ProductName="LED-Dimmer (AB-SmartHouse)"
     BusCurrent="10"
     OrderNumber="OpenKnxLedDimmerAB"
@@ -65,13 +65,37 @@
     KoOffset="450"
     NumChannels="%LED_RGB_NumChannels%"/> <!-- 23 KOs/Ch x 5 = 115 -->
 
+  <op:define prefix="LED_RGBW" prefixDoc="LED" 
+    configTransferName="  RGBW - Rot/Grün/Blau/Weiß"
+    share="../lib/OFM-LedModule/src/RGBW.share.xml"
+    template="../lib/OFM-LedModule/src/RGBW.templ.xml"
+    ModuleType="24"
+    KoOffset="565"
+    NumChannels="%LED_RGBW_NumChannels%"/> <!-- 23 KOs/Ch x 4 = 92 -->
+
+  <op:define prefix="LED_RGBTW" prefixDoc="LED" 
+    configTransferName="  RGBTW - Rot/Grün/Blau/Tunable White"
+    share="../lib/OFM-LedModule/src/RGBTW.share.xml"
+    template="../lib/OFM-LedModule/src/RGBTW.templ.xml"
+    ModuleType="25"
+    KoOffset="657"
+    NumChannels="%LED_RGBTW_NumChannels%"/> <!-- 23 KOs/Ch x 3 = 69 -->    
+
+  <op:define prefix="LED_CO" prefixDoc="LED" 
+    configTransferName="  CO - Zentralobjekt"
+    share="../lib/OFM-LedModule/src/CentralObject.share.xml"
+    template="../lib/OFM-LedModule/src/CentralObject.templ.xml"
+    ModuleType="26"
+    KoOffset="726"
+    NumChannels="%LED_CO_NumChannels%"/> <!-- 11 KOs/Ch x 3 = 33 -->
+
   <op:define prefix="SWA"
     ModuleType="30"
     share="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.share.xml"
     template="../lib/OFM-SwitchActuator/src/SwitchActuatorModule.templ.xml"
     NumChannels="1"
-    KoSingleOffset="570"
-    KoOffset="580">
+    KoSingleOffset="760"
+    KoOffset="770">
     <op:verify File="../lib/OFM-SwitchActuator/library.json" ModuleVersion="%SWA_VerifyVersion%" />
   </op:define> <!-- 9 KOs/Ch = 9 -->
 
@@ -79,7 +103,7 @@
     share="../lib/OFM-BinaryInput/src/BinaryInputChannel.share.xml"
     template="../lib/OFM-BinaryInput/src/BinaryInputChannel.templ.xml"
     NumChannels="4"
-    KoOffset="590" >
+    KoOffset="780" >
     <op:verify File="../lib/OFM-BinaryInput/library.json" ModuleVersion="%BI_VerifyVersion%" /> 
   </op:define> <!-- 1 KO/Ch = 4 -->
 
@@ -88,14 +112,14 @@
     share="../lib/OFM-VirtualButton/src/VirtualButton.share.xml"
     template="../lib/OFM-VirtualButton/src/VirtualButton.templ.xml"
     NumChannels="10"
-    KoOffset="595">
+    KoOffset="785">
     <op:verify File="../lib/OFM-VirtualButton/library.json" ModuleVersion="%BTN_VerifyVersion%" /> 
   </op:define> <!-- 12 KOs/Ch = 120 -->
   
   <op:define prefix="SENS"
     ModuleType="60"
     share="../lib/OFM-SensorModule/src/Sensormodul.share.xml"
-    KoSingleOffset="715">
+    KoSingleOffset="905">
     <op:verify File="../lib/OFM-SensorModule/library.json" ModuleVersion="%SENS_VerifyVersion%" />
   </op:define> <!-- 45 KOs -->
 
@@ -104,7 +128,7 @@
     share="../lib/OFM-LogicModule/src/Logikmodul.share.xml"
     template="../lib/OFM-LogicModule/src/Logikmodul.templ.xml"
     NumChannels="99"
-    KoOffset="761">
+    KoOffset="951">
     <op:verify File="../lib/OFM-LogicModule/library.json" ModuleVersion="%LOG_VerifyVersion%" /> 
   </op:define> <!-- 3 KOs/Ch = 297 -->
 
@@ -113,7 +137,7 @@
     share="../lib/OFM-FunctionBlocks/src/FunctionBlocks.share.xml"
     template="../lib/OFM-FunctionBlocks/src/FunctionBlocks.templ.xml"
     NumChannels="10"
-    KoOffset="1060">
+    KoOffset="1250">
     <op:verify File="../lib/OFM-FunctionBlocks/library.json" ModuleVersion="%FCB_VerifyVersion%" /> 
   </op:define> <!-- 10 KOs/Ch = 100 -->
 
